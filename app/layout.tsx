@@ -43,9 +43,9 @@ export const metadata: Metadata = {
 		shortcut: "/favicon.ico",
 		apple: "/apple-touch-icon.png",
 	},
-	// verification: {
-	//   google: '',
-	// },
+	verification: {
+		google: "5cP42JTz0Y4vOZy_JAj7frAPm0KxsugsuzJ93GJQg5o",
+	},
 }
 
 const thunder_hc = localFont({
