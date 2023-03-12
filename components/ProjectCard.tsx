@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 interface Props {
 	title: string
@@ -10,11 +11,15 @@ interface Props {
 
 const ProjectCard = ({ link, image, title, description }: Props) => {
 	return (
-		<div>
+		<div className="flex items-center justify-center">
 			<Link href={link} className="cursor-pointer">
-				<img
+				<Image
 					src={image}
+					width={403}
+					height={243}
 					alt={title}
+					placeholder="blur"
+					blurDataURL={image}
 					className="border-[.8px] border-gray-900 p-1"
 				/>
 

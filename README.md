@@ -22,7 +22,7 @@ This is my personal portfolio website built with Next.js 13, Tailwind CSS, Conte
 1. Clone the repository:
 
 ```bash
-    git clone https://github.com/<your-username>/personal-portfolio.git
+    git clone https://github.com/vadimghedreutan/portfolio-2023.git
 ```
 
 2. Install the dependencies:
