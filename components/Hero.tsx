@@ -30,7 +30,7 @@ const Hero = () => {
 								delay: 0.05,
 							}}
 							className="rounded-full object-contain"
-							src="/profile_art.jpg"
+							src="/profile_art.webp"
 							alt="Vadim Ghedreutan"
 						/>
 					</div>
