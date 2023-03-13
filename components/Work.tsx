@@ -29,7 +29,7 @@ const Work = ({ image, title, description, link }: Props) => {
 						className="h-full w-full object-contain transition-transform duration-500 ease-in-out sm:group-hover:scale-105 border-[.8px] border-gray-900 p-1"
 					/>
 				</div>
-				<div className="mx-auto max-w-sm text-center sm:max-w-lg">
+				<div className="mx-auto max-w-sm text-center sm:max-w-lg text-neutral-500 dark:text-neutral-400">
 					<p>{description}</p>
 				</div>
 			</Link>
