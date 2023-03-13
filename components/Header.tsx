@@ -35,6 +35,7 @@ const Header = () => {
 										"transition-all hover:text-neutral-800 dark:hover:text-neutral-200",
 										{
 											"text-neutral-500": l.href !== path,
+											"font-bold": l.href === path,
 										}
 									)}
 								>
