@@ -2,6 +2,7 @@ import "./globals.css"
 import clsx from "clsx"
 import localFont from "next/font/local"
 import type { Metadata } from "next"
+import Header from "components/Header"
 
 export const metadata: Metadata = {
 	title: {
@@ -68,7 +69,10 @@ export default function RootLayout({
 				thunder_hc.variable
 			)}
 		>
-			<body>{children}</body>
+			<body>
+				<Header />
+				{children}
+			</body>
 		</html>
 	)
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { allBlogs } from "contentlayer/generated"
-import Header from "components/Header"
 import ProviderAnimation from "../ProviderAnimation"
 export const metadata: Metadata = {
 	title: "Blog",
@@ -11,8 +10,6 @@ export const metadata: Metadata = {
 const BlogPage = () => {
 	return (
 		<div>
-			<Header />
-
 			<ProviderAnimation>
 				<div className="px-5 max-w-7xl mx-auto">
 					<h1 className="font-thunder_hc tracking-wider text-3xl pb-8">

@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { allBlogs } from "contentlayer/generated"
-import Header from "components/Header"
 import { Mdx } from "components/mdx"
 
 export async function generateStaticParams() {
@@ -60,8 +59,6 @@ export default async function Blog({ params }) {
 
 	return (
 		<section>
-			<Header />
-
 			<div className="flex flex-col space-y-2 max-w-7xl mx-auto text-sm px-5">
 				<h1 className="text-xl sm:text-3xl font-bold pb-1">
 					{post.title}
