@@ -17,7 +17,7 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 	return (
 		<div>
 			<Link href={link} className="cursor-pointer group">
-				<div className="relative aspect-video w-full overflow-hidden shadow-sm">
+				<div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-sm bg-gray-700">
 					<Image
 						src={image}
 						alt={title}
@@ -25,7 +25,7 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 						sizes="100"
 						priority
 						className={clsx(
-							"group-hover:opacity-75 duration-700 ease-in-out",
+							"group-hover:opacity-75 duration-700 ease-in-out object-cover",
 							isLoading
 								? "grayscale blur-sm scale-110"
 								: "grayscale-0 blur-0 scale-100"
