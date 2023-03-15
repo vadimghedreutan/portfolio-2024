@@ -13,6 +13,7 @@ module.exports = {
 			},
 			gridTemplateColumns: {
 				fluid: "repeat(auto-fit, minmax(19rem, 1fr))",
+				fluid_second: "repeat(auto-fit, minmax(26rem, 1fr))",
 			},
 			colors: {
 				primary: "var(--primary)",
