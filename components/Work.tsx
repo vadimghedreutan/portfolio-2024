@@ -27,7 +27,7 @@ const Work = ({ image, title, description, link }: Props) => {
 						</p>
 					</div>
 				</div>
-				<div className="group relative aspect-video w-full overflow-hidden rounded-lg cursor-pointer">
+				<div className="group relative aspect-video w-full overflow-hidde shadow-sm cursor-pointer">
 					<Image
 						src={image}
 						alt={title}

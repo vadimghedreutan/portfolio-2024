@@ -17,7 +17,7 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 	return (
 		<div>
 			<Link href={link} className="cursor-pointer group">
-				<div className="relative aspect-video w-full overflow-hidden rounded-lg">
+				<div className="relative aspect-video w-full overflow-hidden shadow-sm">
 					<Image
 						src={image}
 						alt={title}
