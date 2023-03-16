@@ -3,6 +3,9 @@
 const { withContentlayer } = require("next-contentlayer")
 
 const nextConfig = {
+	images: {
+		formats: ["image/webp"],
+	},
 	experimental: {
 		appDir: true,
 	},
@@ -20,6 +23,7 @@ const ContentSecurityPolicy = `
   default-src 'self' vercel.live;
   script-src 'self' 'unsafe-eval' 'unsafe-inline' vercel.live;
   style-src 'self' 'unsafe-inline';
+  img-src * blob: data:;
   font-src 'self';
   media-src 'none';
   connect-src *;
