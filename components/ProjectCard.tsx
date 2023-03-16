@@ -16,8 +16,13 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 	const [isLoading, setLoading] = useState(true)
 	return (
 		<div>
-			<Link href={link} className="cursor-pointer group">
-				<div className="relative aspect-video w-full overflow-hidden shadow-sm bg-gray-200 dark:bg-gray-900">
+			<Link
+				href={link}
+				rel="noopener noreferrer"
+				target="_blank"
+				className="cursor-pointer"
+			>
+				<div className="relative aspect-video w-full overflow-hidden shadow-sm bg-gray-200 dark:bg-gray-900 rounded-lg">
 					<Image
 						src={image}
 						alt={title}
@@ -25,10 +30,10 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 						sizes="100"
 						priority
 						className={clsx(
-							"group-hover:opacity-75 duration-700 ease-in-out object-cover",
+							"object-cover",
 							isLoading
-								? "grayscale blur-sm scale-110"
-								: "grayscale-0 blur-0 scale-100"
+								? "grayscale scale-105"
+								: "grayscale-0 scale-100"
 						)}
 						onLoadingComplete={() => setLoading(false)}
 					/>
@@ -36,7 +41,9 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 
 				<div className="py-3 pl-1">
 					<h3 className="text-xl">{title} - </h3>
-					<p className="text-gray-500">{description}</p>
+					<p className="text-neutral-500 dark:text-neutral-400">
+						{description}
+					</p>
 				</div>
 			</Link>
 		</div>

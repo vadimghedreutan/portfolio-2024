@@ -1,6 +1,10 @@
 "use client"
+
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { FaGithub, FaTwitter } from "react-icons/fa"
+
+import me from "../app/profile_art.webp"
 
 const Hero = () => {
 	return (
@@ -12,26 +16,14 @@ const Hero = () => {
 					</h1>
 				</div>
 				<div className="flex sm:items-center sm:justify-center py-2">
-					<div className="relative w-44 h-44 sm:w-48 sm:h-48">
-						<motion.img
-							initial={{
-								opacity: 0,
-								y: 15,
-							}}
-							animate={{
-								opacity: 1,
-								y: 0,
-							}}
-							exit={{
-								opacity: 0,
-								y: 15,
-							}}
-							transition={{
-								delay: 0.05,
-							}}
-							className="rounded-full object-contain"
-							src="/profile_art.webp"
+					<div>
+						<Image
+							src={me}
 							alt="Vadim Ghedreutan"
+							className="rounded-full"
+							placeholder="blur"
+							width={160}
+							priority
 						/>
 					</div>
 				</div>
@@ -49,6 +41,8 @@ const Hero = () => {
 							delay: 0.3,
 						}}
 						href="https://github.com/vadimghedreutan"
+						rel="noopener noreferrer"
+						target="_blank"
 					>
 						<FaGithub
 							className="h-7 w-7 sm:h-8 sm:w-8 cursor-pointer 
@@ -66,6 +60,8 @@ const Hero = () => {
 							stiffness: 50,
 						}}
 						href="https://twitter.com/GhedreutanVadim"
+						rel="noopener noreferrer"
+						target="_blank"
 					>
 						<FaTwitter
 							className="h-7 w-7 sm:h-8 sm:w-8 cursor-pointer

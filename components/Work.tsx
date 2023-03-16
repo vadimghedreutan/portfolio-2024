@@ -18,6 +18,8 @@ const Work = ({ image, title, description, link }: Props) => {
 		<div>
 			<Link
 				href={link}
+				rel="noopener noreferrer"
+				target="_blank"
 				className="mx-auto flex max-w-lg flex-col items-center justify-center py-10 px-5"
 			>
 				<div className="flex items-center justify-between space-x-2 pb-5">
@@ -27,7 +29,7 @@ const Work = ({ image, title, description, link }: Props) => {
 						</p>
 					</div>
 				</div>
-				<div className="group relative aspect-video w-full overflow-hidden shadow-sm bg-gray-200 dark:bg-gray-900">
+				<div className="relative aspect-video w-full overflow-hidden shadow-sm bg-gray-200 dark:bg-gray-900 rounded-lg">
 					<Image
 						src={image}
 						alt={title}
@@ -35,15 +37,15 @@ const Work = ({ image, title, description, link }: Props) => {
 						sizes="100"
 						priority
 						className={clsx(
-							"group-hover:opacity-75 duration-700 ease-in-out object-cover",
+							"object-cover",
 							isLoading
-								? "grayscale blur-sm scale-110"
-								: "grayscale-0 blur-0 scale-100"
+								? "grayscale scale-105"
+								: "grayscale-0 scale-100"
 						)}
 						onLoadingComplete={() => setLoading(false)}
 					/>
 				</div>
-				<div className="mx-auto max-w-sm text-center sm:max-w-lg text-gray-500 pt-5">
+				<div className="mx-auto max-w-sm text-center sm:max-w-lg text-neutral-500 dark:text-neutral-400 pt-5">
 					<p>{description}</p>
 				</div>
 			</Link>

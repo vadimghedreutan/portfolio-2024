@@ -7,9 +7,11 @@ const Contact = () => {
 				<div className="flex flex-col items-center justify-center space-y-4">
 					<a
 						href="mailto:vadim.ghedreutan@gmail.com"
-						className="bg-primary group flex h-16 w-16 items-center justify-center rounded-full"
+						rel="noopener noreferrer"
+						target="_blank"
+						className="bg-primary flex h-16 w-16 items-center justify-center rounded-full"
 					>
-						<MdMarkEmailRead className="h-6 w-6 cursor-pointer text-white transition-transform duration-500 ease-in-out group-hover:scale-150" />
+						<MdMarkEmailRead className="h-6 w-6 cursor-pointer text-white" />
 					</a>
 
 					<div className="flex items-center">
