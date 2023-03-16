@@ -7,7 +7,6 @@ const Contact = () => {
 				<div className="flex flex-col items-center justify-center space-y-4">
 					<a
 						href="mailto:vadim.ghedreutan@gmail.com"
-						rel="noopener noreferrer"
 						target="_blank"
 						className="bg-primary flex h-16 w-16 items-center justify-center rounded-full"
 					>

@@ -18,7 +18,6 @@ const Work = ({ image, title, description, link }: Props) => {
 		<div>
 			<Link
 				href={link}
-				rel="noopener noreferrer"
 				target="_blank"
 				className="mx-auto flex max-w-lg flex-col items-center justify-center py-10 px-5"
 			>
@@ -38,9 +37,7 @@ const Work = ({ image, title, description, link }: Props) => {
 						priority
 						className={clsx(
 							"object-cover",
-							isLoading
-								? "grayscale scale-105"
-								: "grayscale-0 scale-100"
+							isLoading ? "grayscale" : "grayscale-0"
 						)}
 						onLoadingComplete={() => setLoading(false)}
 					/>

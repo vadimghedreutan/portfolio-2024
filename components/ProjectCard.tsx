@@ -16,12 +16,7 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 	const [isLoading, setLoading] = useState(true)
 	return (
 		<div>
-			<Link
-				href={link}
-				rel="noopener noreferrer"
-				target="_blank"
-				className="cursor-pointer"
-			>
+			<Link href={link} target="_blank" className="cursor-pointer">
 				<div className="relative aspect-video w-full overflow-hidden shadow-sm bg-gray-200 dark:bg-gray-900 rounded-lg">
 					<Image
 						src={image}
@@ -31,9 +26,7 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 						priority
 						className={clsx(
 							"object-cover",
-							isLoading
-								? "grayscale scale-105"
-								: "grayscale-0 scale-100"
+							isLoading ? "grayscale" : "grayscale-0"
 						)}
 						onLoadingComplete={() => setLoading(false)}
 					/>
