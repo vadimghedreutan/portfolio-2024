@@ -41,7 +41,6 @@ const Hero = () => {
 							delay: 0.3,
 						}}
 						href="https://github.com/vadimghedreutan"
-						rel="noopener noreferrer"
 						target="_blank"
 					>
 						<FaGithub
@@ -60,7 +59,6 @@ const Hero = () => {
 							stiffness: 50,
 						}}
 						href="https://twitter.com/GhedreutanVadim"
-						rel="noopener noreferrer"
 						target="_blank"
 					>
 						<FaTwitter

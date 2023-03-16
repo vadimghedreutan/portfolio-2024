@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import Logo from "./logo"
 import clsx from "clsx"
 import { usePathname } from "next/navigation"
 
@@ -14,16 +15,9 @@ const Header = () => {
 	return (
 		<header className="max-w-7xl mx-auto px-5 py-6 sm:py-10">
 			<div className="flex items-center justify-between">
-				<Link
-					href="/"
-					className="relative h-12 w-12 flex items-center cursor-pointer"
-				>
-					<img
-						src="/logo.svg"
-						alt="Vadim Ghedreutan"
-						className="object-contain"
-					/>
-				</Link>
+				<div className="relative h-12 w-12 flex items-center cursor-pointer">
+					<Logo />
+				</div>
 
 				<nav className="flex items-center space-x-8">
 					<ul className="space-x-5 flex">
