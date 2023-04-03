@@ -33,7 +33,7 @@ const BlogPage = () => {
 								href={`/blog/${post.slug}`}
 							>
 								<div className="w-full flex flex-col">
-									<p className="text-md lg:text-xl font-medium pb-1">
+									<p className="text-md lg:text-xl font-bold pb-1">
 										{post.title}
 									</p>
 									<p className="text-sm text-neutral-500">
