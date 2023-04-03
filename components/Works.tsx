@@ -4,7 +4,7 @@ import { items } from "./info"
 const Works = () => {
 	return (
 		<section className="py-8 px-5 max-w-7xl mx-auto">
-			<div className="relative grid bg-clr_first dark:bg-[#272C38]">
+			<div className="relative grid bg-clr_first dark:bg-[#110E0E]">
 				{items &&
 					items
 						.sort((a, b) => {
@@ -19,7 +19,7 @@ const Works = () => {
 						.slice(0, 1)
 						.map((work, index) => <Work key={index} {...work} />)}
 			</div>
-			<div className="relative grid lg:grid-cols-2 bg-clr_second dark:bg-clr_third">
+			<div className="relative grid lg:grid-cols-2 bg-clr_second dark:bg-[#110A0A]">
 				{items.slice(1, 3).map((work, index) => (
 					<Work key={index} {...work} />
 				))}

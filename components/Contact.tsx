@@ -14,7 +14,7 @@ const Contact = () => {
 					</a>
 
 					<div className="flex items-center">
-						<span className="w-4 h-4 bg-primary rounded-full mr-2"></span>{" "}
+						<span className="w-3 h-3 bg-primary rounded-full mr-2"></span>{" "}
 						Vadim Ghedreutan
 					</div>
 					<div className="text-sm">
