@@ -12,7 +12,7 @@ const Hero = () => {
 			<div className="flex flex-col justify-center gap-6">
 				<div className="md:max-w-3xl">
 					<h1 className="font-thunder_hc text-7xl md:text-8xl 3xs:text-5xl sm:text-center mr-8 sm:mr-0">
-						building beautiful user interfaces.
+						System Administrator, Developer.
 					</h1>
 				</div>
 				<div className="flex sm:items-center sm:justify-center py-2">

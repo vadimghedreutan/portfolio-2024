@@ -1,8 +1,8 @@
 const About = () => {
 	return (
 		<section className="px-5 max-w-7xl mx-auto lg:pb-8">
-			<h1 className="font-thunder_hc tracking-wider text-4xl font-medium">
-				<span>👋</span> About<span className="text-primary">.</span>
+			<h1 className="font-thunder_hc text-4xl font-medium">
+				About<span className="text-primary">.</span>
 			</h1>
 			<p className="mt-4 max-w-3xl lg:text-lg">
 				Hey, I'm Vadim Ghedreutan. My expertise as a system
