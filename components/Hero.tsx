@@ -8,7 +8,7 @@ import me from "../app/profile_art.webp"
 
 const Hero = () => {
 	return (
-		<div className="relative sm:min-h-[40vh] min-h-[69vh] max-w-7xl mx-auto px-5 flex sm:items-center sm:justify-center">
+		<div className="relative sm:min-h-[40vh] min-h-[69vh] px-5 flex sm:items-center sm:justify-center">
 			<div className="flex flex-col justify-center gap-6">
 				<div className="md:max-w-3xl">
 					<h1 className="font-thunder_hc text-7xl md:text-8xl 3xs:text-5xl sm:text-center mr-8 sm:mr-0">
@@ -28,7 +28,7 @@ const Hero = () => {
 					</div>
 				</div>
 			</div>
-			<div className="absolute top-0 right-4">
+			<div className="absolute top-0 sm:right-10 right-4">
 				<div className="flex flex-col items-center space-y-4">
 					<motion.a
 						animate={{

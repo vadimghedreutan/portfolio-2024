@@ -13,7 +13,7 @@ const links = [
 const Header = () => {
 	const path = usePathname()
 	return (
-		<header className="max-w-7xl mx-auto px-5 py-6 sm:py-10">
+		<header className="px-5 py-6 sm:px-10 sm:py-10">
 			<div className="flex items-center justify-between">
 				<div className="relative h-12 w-12 flex items-center cursor-pointer">
 					<Logo />

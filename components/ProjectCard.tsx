@@ -15,8 +15,16 @@ interface Props {
 const ProjectCard = ({ link, image, title, description }: Props) => {
 	const [isLoading, setLoading] = useState(true)
 	return (
-		<div>
-			<Link href={link} target="_blank" className="cursor-pointer">
+		<div className="border rounded-lg dark:border-[hsla(0,0%,100%,.15)] border-[#E9E9E9]">
+			<Link href={link} target="_blank" className="mx-auto flex flex-col">
+				<div className="flex items-center justify-between space-x-2">
+					<div className="p-3">
+						<p className="sm:text-lg sm:font-semibold">{title} -</p>
+						<p className="text-neutral-500 dark:text-neutral-400 hidden lg:inline-flex">
+							{description}
+						</p>
+					</div>
+				</div>
 				<div className="relative aspect-video w-full overflow-hidden shadow-sm bg-gray-200 dark:bg-gray-900 rounded-lg">
 					<Image
 						src={image}
@@ -30,13 +38,6 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 						)}
 						onLoadingComplete={() => setLoading(false)}
 					/>
-				</div>
-
-				<div className="py-3 pl-1">
-					<h3 className="text-xl">{title} - </h3>
-					<p className="text-neutral-500 dark:text-neutral-400">
-						{description}
-					</p>
 				</div>
 			</Link>
 		</div>

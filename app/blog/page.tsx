@@ -11,7 +11,7 @@ const BlogPage = () => {
 	return (
 		<div>
 			<ProviderAnimation>
-				<div className="px-5 max-w-7xl mx-auto">
+				<div className="px-5 sm:px-10">
 					<h1 className="font-thunder_hc tracking-wider text-3xl pb-8">
 						Blog<span className="text-primary">.</span>
 					</h1>

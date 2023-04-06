@@ -12,7 +12,7 @@ const Projects = () => {
 	return (
 		<div>
 			<ProviderAnimation>
-				<div className="max-w-7xl mx-auto grid grid-cols-fluid px-5 py-8 gap-4">
+				<div className="grid grid-cols-fluid_second px-5 sm:px-10 py-8 gap-4">
 					{items &&
 						items
 							.sort((a, b) => {

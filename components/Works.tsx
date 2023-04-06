@@ -1,10 +1,11 @@
 import Work from "./Work"
 import { items } from "./info"
+import Link from "next/link"
 
 const Works = () => {
 	return (
-		<section className="py-8 px-5 max-w-7xl mx-auto">
-			<div className="relative grid bg-[#F8F4EA] dark:bg-[#110E0E] rounded-tl-lg rounded-tr-lg ">
+		<section className="py-8 px-5 sm:px-10">
+			<div className="relative grid sm:grid-cols-2 gap-4">
 				{items &&
 					items
 						.sort((a, b) => {
@@ -16,13 +17,8 @@ const Works = () => {
 							}
 							return 1
 						})
-						.slice(0, 1)
+						.slice(0, 4)
 						.map((work, index) => <Work key={index} {...work} />)}
-			</div>
-			<div className="relative grid lg:grid-cols-2 bg-[#ECE8DD] dark:bg-[#110A0A] rounded-bl-lg rounded-br-lg">
-				{items.slice(1, 3).map((work, index) => (
-					<Work key={index} {...work} />
-				))}
 			</div>
 		</section>
 	)

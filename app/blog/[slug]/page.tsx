@@ -59,7 +59,7 @@ export default async function Blog({ params }) {
 
 	return (
 		<section>
-			<div className="flex flex-col space-y-2 max-w-7xl mx-auto text-sm px-5">
+			<div className="flex flex-col space-y-2 text-sm px-5 sm:px-10">
 				<h1 className="text-xl sm:text-3xl font-bold pb-1">
 					{post.title}
 				</h1>

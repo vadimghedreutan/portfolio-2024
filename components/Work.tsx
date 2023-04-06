@@ -15,16 +15,13 @@ interface Props {
 const Work = ({ image, title, description, link }: Props) => {
 	const [isLoading, setLoading] = useState(true)
 	return (
-		<div>
-			<Link
-				href={link}
-				target="_blank"
-				className="mx-auto flex max-w-lg flex-col items-center justify-center py-10 px-5"
-			>
-				<div className="flex items-center justify-between space-x-2 pb-5">
-					<div className="px-2">
-						<p className="text-xl sm:text-2xl font-semibold">
-							{title}
+		<div className="border rounded-lg dark:border-[hsla(0,0%,100%,.15)] border-[#E9E9E9]">
+			<Link href={link} target="_blank" className="mx-auto flex flex-col">
+				<div className="flex items-center justify-between space-x-2">
+					<div className="p-3">
+						<p className="sm:text-lg sm:font-semibold">{title}</p>
+						<p className="text-neutral-500 dark:text-neutral-400 hidden lg:inline-flex">
+							{description}
 						</p>
 					</div>
 				</div>
@@ -41,9 +38,6 @@ const Work = ({ image, title, description, link }: Props) => {
 						)}
 						onLoadingComplete={() => setLoading(false)}
 					/>
-				</div>
-				<div className="mx-auto max-w-sm text-center sm:max-w-lg text-neutral-500 dark:text-neutral-400 pt-5">
-					<p>{description}</p>
 				</div>
 			</Link>
 		</div>
