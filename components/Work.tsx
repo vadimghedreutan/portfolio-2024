@@ -20,7 +20,7 @@ const Work = ({ image, title, description, link }: Props) => {
 				<div className="flex items-center justify-between space-x-2">
 					<div className="p-3">
 						<p className="sm:text-lg sm:font-semibold">{title}</p>
-						<p className="text-neutral-500 hidden lg:inline-flex">
+						<p className="text-neutral-500 text-sm lg:text-base">
 							{description}
 						</p>
 					</div>
