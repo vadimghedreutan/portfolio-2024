@@ -65,7 +65,7 @@ export default function RootLayout({
 		<html
 			lang="en"
 			className={clsx(
-				"text-clr_dark bg-clr_theme_white dark:text-gray-50 dark:bg-clr_theme_dark",
+				"text-clr_dark bg-clr_theme_white",
 				thunder_hc.variable
 			)}
 		>

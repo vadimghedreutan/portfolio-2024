@@ -63,7 +63,7 @@ export default async function Blog({ params }) {
 				<h1 className="text-xl sm:text-3xl font-bold pb-1">
 					{post.title}
 				</h1>
-				<div className="bg-neutral-700 dark:bg-neutral-800 text-white rounded-md px-2 py-1 tracking-tighter w-fit">
+				<div className="bg-neutral-700 text-white rounded-md px-2 py-1 tracking-tighter w-fit">
 					{post.publishedAt}
 				</div>
 			</div>
