@@ -17,14 +17,6 @@ const Work = ({ image, title, description, link }: Props) => {
 	return (
 		<div className="border rounded-lg border-[#E9E9E9]">
 			<Link href={link} target="_blank" className="mx-auto flex flex-col">
-				<div className="flex items-center justify-between space-x-2 bg-[#F8F8F8]">
-					<div className="p-3">
-						<p className="sm:text-lg sm:font-semibold">{title}</p>
-						<p className="text-neutral-500 text-sm lg:text-base">
-							{description}
-						</p>
-					</div>
-				</div>
 				<div className="relative aspect-video w-full overflow-hidden shadow-sm bg-gray-200 rounded-lg">
 					<Image
 						src={image}
