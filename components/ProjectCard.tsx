@@ -1,5 +1,7 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import Link from "next/link"
 import Image from "next/image"
 import clsx from "clsx"
@@ -12,10 +14,33 @@ interface Props {
 	publishedAt: string
 }
 
+const variants = {
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: { type: "spring", duration: 1, stiffness: 50 },
+	},
+	hidden: { opacity: 0, y: 15 },
+	exit: { opacity: 0, y: 15 },
+}
+
 const ProjectCard = ({ link, image, title, description }: Props) => {
 	const [isLoading, setLoading] = useState(true)
+	const controls = useAnimation()
+	const [ref, inView] = useInView()
+	useEffect(() => {
+		if (inView) {
+			controls.start("visible")
+		}
+	}, [controls, inView])
 	return (
-		<div className="border rounded-lg border-[#E9E9E9]">
+		<motion.div
+			className="border rounded-lg border-[#E9E9E9]"
+			ref={ref}
+			animate={controls}
+			initial="hidden"
+			variants={variants}
+		>
 			<Link href={link} target="_blank" className="mx-auto flex flex-col">
 				<div className="flex items-center justify-between space-x-2 bg-[#F8F8F8]">
 					<div className="p-3">
@@ -40,7 +65,7 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 					/>
 				</div>
 			</Link>
-		</div>
+		</motion.div>
 	)
 }
 export default ProjectCard

@@ -17,7 +17,9 @@ const ProviderAnimation = ({ children }: any) => {
 				y: 15,
 			}}
 			transition={{
-				delay: 0.05,
+				type: "spring",
+				duration: 1,
+				stiffness: 50,
 			}}
 		>
 			{children}
