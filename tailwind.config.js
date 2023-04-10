@@ -12,7 +12,7 @@ module.exports = {
 				thunder_hc: "var(--font-thunder_hc)",
 			},
 			gridTemplateColumns: {
-				fluid: "repeat(auto-fit, minmax(19rem, 1fr))",
+				fluid: "repeat(auto-fit, minmax(20rem, 1fr))",
 				fluid_second: "repeat(auto-fit, minmax(24rem, 1fr))",
 			},
 			colors: {
