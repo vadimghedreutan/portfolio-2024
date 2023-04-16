@@ -119,4 +119,11 @@ export const items: Props[] = [
 		link: "https://linktree-redesign-theme.vercel.app",
 		publishedAt: "2023-02-12",
 	},
+	{
+		title: "Mobile wallpapers",
+		image: "/projects/wmobile.webp",
+		description: "Next.js 13, Tailwind CSS, Supabase",
+		link: "https://collection-of-stunning-wallpapers.vercel.app",
+		publishedAt: "2023-04-15",
+	},
 ]

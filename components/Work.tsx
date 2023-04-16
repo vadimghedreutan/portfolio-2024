@@ -18,10 +18,14 @@ const variants = {
 	visible: {
 		opacity: 1,
 		y: 0,
-		transition: { type: "spring", duration: 1, stiffness: 50 },
+		transition: {
+			type: "spring",
+			duration: 1,
+			stiffness: 50,
+		},
 	},
-	hidden: { opacity: 0, y: 15 },
-	exit: { opacity: 0, y: 15 },
+	hidden: { opacity: 0, y: 20 },
+	exit: { opacity: 0, y: 20 },
 }
 
 const Work = ({ image, title, link }: Props) => {
