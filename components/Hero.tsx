@@ -4,30 +4,27 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { FaGithub, FaTwitter } from "react-icons/fa"
 
-import me from "../app/profile_art.webp"
+import hero_svg from "./hero_bg.svg"
 
 const Hero = () => {
 	return (
-		<div className="relative sm:min-h-[40vh] min-h-[69vh] px-5 flex sm:items-center sm:justify-center">
-			<div className="flex flex-col justify-center gap-6">
-				<div className="md:max-w-3xl">
-					<h1 className="font-thunder_hc text-7xl md:text-8xl 3xs:text-5xl sm:text-center mr-8 sm:mr-0">
-						System Administrator, Developer.
-					</h1>
-				</div>
-				<div className="flex sm:items-center sm:justify-center py-2">
-					<div>
-						<Image
-							src={me}
-							alt="Vadim Ghedreutan"
-							className="rounded-full"
-							placeholder="blur"
-							width={160}
-							priority
-						/>
-					</div>
+		<div className="relative min-h-[70vh] px-5 flex items-center justify-center">
+			<div className="md:grid md:grid-cols-2 flex flex-col space-y-8">
+				<h1 className="font-thunder_hc text-7xl md:text-8xl 3xs:text-5xl 3xs:pr-6 flex items-center sm:pl-10">
+					System Administrator, Developer.
+				</h1>
+				<div className="relative aspect-video w-full overflow-hidden">
+					<Image
+						src={hero_svg}
+						alt=""
+						fill
+						sizes="100"
+						priority
+						className="object-cover"
+					/>
 				</div>
 			</div>
+
 			<div className="absolute top-0 sm:right-10 right-4">
 				<div className="flex flex-col items-center space-y-4">
 					<motion.a

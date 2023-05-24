@@ -60,22 +60,7 @@ const Contact = () => {
 		}
 	}, [controls, inView])
 	return (
-		<section className="bg-[#111010]">
-			<div className="flex items-center justify-center h-[50vh]">
-				<motion.div
-					ref={ref}
-					animate={controls}
-					initial="hidden"
-					variants={title_variants}
-				>
-					<Link
-						href="/projects"
-						className="font-thunder_hc text-5xl cursor-pointer text-white"
-					>
-						All Projects <span className="text-primary">.</span>
-					</Link>
-				</motion.div>
-			</div>
+		<section className="py-12">
 			<div className="flex items-center sm:justify-between flex-col sm:flex-row space-y-4 py-6 text-white px-3 sm:px-10">
 				<div className="flex items-center space-x-4">
 					<div className="flex items-center space-x-4">

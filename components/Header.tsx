@@ -26,7 +26,7 @@ const Header = () => {
 								<Link
 									href={l.href}
 									className={clsx(
-										"transition-all hover:text-neutral-800 cursor-pointer",
+										"transition-all hover:text-neutral-300 cursor-pointer",
 										{
 											"text-neutral-500": l.href !== path,
 											"font-bold": l.href === path,

@@ -28,7 +28,7 @@ const variants = {
 	exit: { opacity: 0, y: 20 },
 }
 
-const Work = ({ image, title, link }: Props) => {
+const Work = ({ image, title, link, description }: Props) => {
 	const [isLoading, setLoading] = useState(true)
 	const controls = useAnimation()
 	const [ref, inView] = useInView()
@@ -39,14 +39,13 @@ const Work = ({ image, title, link }: Props) => {
 	}, [controls, inView])
 	return (
 		<motion.div
-			className="border rounded-lg border-[#E9E9E9]"
 			ref={ref}
 			animate={controls}
 			initial="hidden"
 			variants={variants}
 		>
 			<Link href={link} target="_blank" className="mx-auto flex flex-col">
-				<div className="relative aspect-video w-full overflow-hidden shadow-sm bg-gray-200 rounded-lg">
+				<div className="relative aspect-video lg:aspect-[4/3] w-full overflow-hidden shadow-sm rounded-lg">
 					<Image
 						src={image}
 						alt={title}
@@ -61,6 +60,12 @@ const Work = ({ image, title, link }: Props) => {
 					/>
 				</div>
 			</Link>
+			<div className="p-3">
+				<p className="sm:text-lg sm:font-semibold">{title} -</p>
+				<p className="text-neutral-500 text-sm lg:text-base">
+					{description}
+				</p>
+			</div>
 		</motion.div>
 	)
 }

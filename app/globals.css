@@ -1,10 +1,11 @@
 :root {
-  --primary: #F41E1D;
+  --primary: #DF2D2D;
   --clr-first: #CFF5E7; 
   --clr-second: #A0E4CB;
   --clr-third: #2A303C;
   --clr-dark: #1F2937;
-  --clr-theme-dark: #111010;
+  --clr-white: #ffffff;
+  --clr-theme-dark: #0F0F0F;
   --clr-theme-white: #fbfbfb;
 }
 
