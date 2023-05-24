@@ -8,7 +8,7 @@ import hero_svg from "./hero_bg.svg"
 
 const Hero = () => {
 	return (
-		<div className="relative min-h-[70vh] px-5 flex items-center justify-center">
+		<div className="relative sm:min-h-[65vh] min-h-[75vh] px-5 flex items-center justify-center">
 			<div className="md:grid md:grid-cols-2 flex flex-col space-y-8">
 				<h1 className="font-thunder_hc text-7xl md:text-8xl 3xs:text-5xl 3xs:pr-6 flex items-center sm:pl-10">
 					System Administrator, Developer.
