@@ -13,7 +13,7 @@ const Hero = () => {
 				<h1 className="font-thunder_hc text-7xl md:text-8xl 3xs:text-5xl 3xs:pr-6 flex items-center sm:pl-10">
 					System Administrator, Developer.
 				</h1>
-				<div className="relative aspect-video w-full overflow-hidden">
+				<div className="relative aspect-video w-full overflow-hidden hidden md:inline-flex">
 					<Image
 						src={hero_svg}
 						alt=""
@@ -41,7 +41,7 @@ const Hero = () => {
 						target="_blank"
 					>
 						<FaGithub
-							className="h-7 w-7 sm:h-8 sm:w-8 cursor-pointer 
+							className="h-8 w-8 sm:h-9 sm:w-9 cursor-pointer 
               transition-all duration-500 ease-out hover:scale-125"
 						/>
 					</motion.a>

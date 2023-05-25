@@ -20,7 +20,7 @@ const Header = () => {
 				</div>
 
 				<nav className="flex items-center space-x-8">
-					<ul className="space-x-5 flex">
+					<ul className="space-x-6 flex">
 						{links.map((l) => (
 							<li key={l.href} className="transition-all">
 								<Link
