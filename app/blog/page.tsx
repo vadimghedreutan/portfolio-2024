@@ -10,12 +10,13 @@ export const metadata: Metadata = {
 const BlogPage = () => {
 	return (
 		<div>
+			<div className="px-5 sm:px-10">
+				<h1 className="font-thunder_hc tracking-wider text-5xl bg-primary p-2 w-fit">
+					Blog<span className="text-white">.</span>
+				</h1>
+			</div>
 			<ProviderAnimation>
-				<div className="px-5 sm:px-10">
-					<h1 className="font-thunder_hc tracking-wider text-3xl pb-8">
-						Blog<span className="text-primary">.</span>
-					</h1>
-
+				<div className="px-5 sm:px-10 py-8">
 					{allBlogs
 						.sort((a, b) => {
 							if (

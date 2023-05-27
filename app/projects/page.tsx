@@ -11,6 +11,11 @@ export const metadata: Metadata = {
 const Projects = () => {
 	return (
 		<div>
+			<div className="sm:px-10 px-5">
+				<h1 className="font-thunder_hc tracking-wider text-5xl bg-primary p-2 w-fit">
+					Projects<span className="text-white">.</span>
+				</h1>
+			</div>
 			<ProviderAnimation>
 				<div className="grid grid-cols-fluid sm:grid-cols-fluid_second px-5 sm:px-10 py-8 gap-4">
 					{items &&

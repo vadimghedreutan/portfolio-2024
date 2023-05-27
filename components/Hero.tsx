@@ -21,7 +21,7 @@ const Hero = () => {
 						fill
 						sizes="100"
 						priority
-						className="object-cover"
+						className="object-content"
 					/>
 				</div>
 			</div>
