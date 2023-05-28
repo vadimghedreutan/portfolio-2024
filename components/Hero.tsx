@@ -8,9 +8,9 @@ import hero_svg from "./hero_bg.svg"
 
 const Hero = () => {
 	return (
-		<div className="relative sm:min-h-[65vh] min-h-[75vh] px-5 flex items-center justify-center">
-			<div className="md:grid md:grid-cols-2 flex flex-col items-center space-y-8 sm:py-24">
-				<h1 className="font-thunder_hc text-7xl md:text-8xl 3xs:text-5xl 3xs:pr-6 flex flex-col md:pl-10">
+		<div className="relative sm:min-h-[65vh] min-h-[75vh] px-5 flex items-center w-full">
+			<div className="md:grid md:grid-cols-2 flex flex-col md:items-center space-y-8 sm:py-24 max-w-screen-2xl mx-auto w-full">
+				<h1 className="font-thunder_hc text-7xl md:text-8xl 3xs:text-5xl 3xs:pr-6 flex flex-col md:pl-5">
 					System Administrator,{" "}
 					<span className="bg-primary p-2 w-fit">Developer.</span>
 				</h1>
