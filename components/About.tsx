@@ -10,7 +10,7 @@ const About = () => {
 			</h1>
 			<div className="flex items-center flex-col lg:flex-row max-w-screen-2xl mx-auto">
 				<div className="flex-1">
-					<p className="text-xl lg:leading-[2.75rem] md:text-3xl lg:text-4xl">
+					<p className="text-xl lg:leading-[2.75rem] md:text-2xl lg:text-3xl">
 						Hey, I'm Vadim Ghedreutan. My expertise as a system
 						administrator includes maintaining the IT
 						infrastructure, troubleshooting issues, proficient in a
