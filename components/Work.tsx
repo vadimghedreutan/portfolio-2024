@@ -45,7 +45,7 @@ const Work = ({ image, title, link, description }: Props) => {
 			variants={variants}
 		>
 			<Link href={link} target="_blank" className="mx-auto flex flex-col">
-				<div className="relative aspect-video lg:aspect-[4/3] w-full overflow-hidden shadow-sm rounded-lg">
+				<div className="relative aspect-video lg:aspect-[4/3] w-full overflow-hidden shadow-sm rounded-2xl">
 					<Image
 						src={image}
 						alt={title}
@@ -61,10 +61,8 @@ const Work = ({ image, title, link, description }: Props) => {
 				</div>
 			</Link>
 			<div className="p-3">
-				<p className="sm:text-lg sm:font-semibold">{title} -</p>
-				<p className="text-neutral-500 text-sm lg:text-base">
-					{description}
-				</p>
+				<p className="text-lg sm:font-medium">{title} -</p>
+				<p className="text-zinc-500 text-base">{description}</p>
 			</div>
 		</motion.div>
 	)

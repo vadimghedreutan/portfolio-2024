@@ -3,6 +3,7 @@ import clsx from "clsx"
 import localFont from "next/font/local"
 import type { Metadata } from "next"
 import Header from "components/Header"
+import Footer from "components/Footer"
 
 export const metadata: Metadata = {
 	title: {
@@ -65,13 +66,18 @@ export default function RootLayout({
 		<html
 			lang="en"
 			className={clsx(
-				"text-clr_white bg-clr_theme_dark",
+				"text-zinc-900 bg-white dark:text-white dark:bg-zinc-900",
 				thunder_hc.variable
 			)}
 		>
 			<body>
-				<Header />
-				<main>{children}</main>
+				<div className="w-full flex flex-col min-h-screen">
+					<Header />
+					<main className="flex-grow">{children}</main>
+					<div className="mt-auto">
+						<Footer />
+					</div>
+				</div>
 			</body>
 		</html>
 	)

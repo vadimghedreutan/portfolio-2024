@@ -17,13 +17,6 @@ module.exports = {
 			},
 			colors: {
 				primary: "var(--primary)",
-				clr_first: "var(--clr-first)",
-				clr_second: "var(--clr-second)",
-				clr_third: "var(--clr-third)",
-				clr_dark: "var(--clr-dark)",
-				clr_white: "var(--clr-white)",
-				clr_theme_dark: "var(--clr-theme-dark)",
-				clr_theme_white: "var(--clr-theme-white)",
 			},
 			screens: {
 				big: "1920px",

@@ -1,12 +1,5 @@
 :root {
   --primary: #DF2D2D;
-  --clr-first: #CFF5E7; 
-  --clr-second: #A0E4CB;
-  --clr-third: #2A303C;
-  --clr-dark: #1F2937;
-  --clr-white: #ffffff;
-  --clr-theme-dark: #0F0F0F;
-  --clr-theme-white: #fbfbfb;
 }
 
 @tailwind base;

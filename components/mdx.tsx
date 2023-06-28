@@ -38,7 +38,7 @@ export function Mdx({ code }: MdxProps) {
 	const Component = useMDXComponent(code)
 
 	return (
-		<article className="prose prose-quoteless prose-neutral hover:prose-a:text-primary text-white prose-headings:text-white prose-code:text-white prose-a:text-white max-w-full mx-auto py-12 px-5 sm:px-10">
+		<article className="prose prose-quoteless prose-neutral dark:prose-invert max-w-full mx-auto py-12 px-5 sm:px-10">
 			<Component components={{ ...components }} />
 		</article>
 	)

@@ -12,7 +12,7 @@ const Projects = () => {
 	return (
 		<div>
 			<div className="sm:px-10 px-5">
-				<h1 className="font-thunder_hc tracking-wider text-5xl bg-primary p-2 w-fit">
+				<h1 className="font-thunder_hc tracking-wider text-4xl bg-primary p-2 w-fit rounded-lg text-white">
 					Projects<span className="text-white">.</span>
 				</h1>
 			</div>
