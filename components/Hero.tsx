@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { FaGithub, FaTwitter } from "react-icons/fa"
+import { MdEmail } from "react-icons/md"
 
 import me from "../app/profile_art.webp"
 
@@ -69,6 +70,24 @@ const Hero = () => {
 								target="_blank"
 							>
 								<FaTwitter
+									className="h-6 w-6 sm:h-7 sm:w-7 cursor-pointer
+              transition-all duration-500 ease-out hover:scale-125"
+								/>
+							</motion.a>
+							<motion.a
+								animate={{
+									scale: [0, 1, 1.1, 1],
+								}}
+								transition={{
+									duration: 1,
+									ease: "easeInOut",
+									delay: 0.2,
+									stiffness: 50,
+								}}
+								href="mailto:dev.vadimghedreutan@gmail.com"
+								target="_blank"
+							>
+								<MdEmail
 									className="h-6 w-6 sm:h-7 sm:w-7 cursor-pointer
               transition-all duration-500 ease-out hover:scale-125"
 								/>

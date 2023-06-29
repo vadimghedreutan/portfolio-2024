@@ -1,21 +1,16 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 import { allBlogs } from "contentlayer/generated"
-import ProviderAnimation from "../ProviderAnimation"
-export const metadata: Metadata = {
-	title: "Blog",
-	description: "Read my posts on web development, sysadmin, and more.",
-}
 
-const BlogPage = () => {
+const BlogFooter = () => {
 	return (
-		<div className="px-5 sm:px-10 2xl:max-w-7xl mx-auto">
-			<h1 className="font-thunder_hc tracking-wider text-4xl bg-primary p-2 w-fit rounded-lg text-white">
-				Blog<span className="text-white">.</span>
+		<div className="py-12 px-5 sm:px-10 2xl:max-w-7xl mx-auto">
+			<h1 className="font-thunder_hc text-4xl font-medium py-4">
+				Articles
+				<span className="text-primary"> .</span>
 			</h1>
 
-			<ProviderAnimation>
-				<article className="flex flex-col gap-8 mt-12">
+			<div className="grid sm:grid-cols-2 gap-2 mt-2">
+				<article className="flex flex-col gap-8">
 					{allBlogs
 						.sort((a, b) => {
 							if (
@@ -26,6 +21,7 @@ const BlogPage = () => {
 							}
 							return 1
 						})
+						.slice(0, 3)
 						.map((post) => (
 							<div
 								key={post.slug}
@@ -61,8 +57,10 @@ const BlogPage = () => {
 							</div>
 						))}
 				</article>
-			</ProviderAnimation>
+				<div></div>
+			</div>
 		</div>
 	)
 }
-export default BlogPage
+
+export default BlogFooter
