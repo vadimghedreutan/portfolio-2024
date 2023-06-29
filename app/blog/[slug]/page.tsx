@@ -60,12 +60,12 @@ export default async function Blog({ params }) {
 	}
 
 	return (
-		<section>
-			<div className="flex flex-col space-y-4 text-sm px-5 sm:px-10">
+		<section className="2xl:max-w-7xl mx-auto px-5 sm:px-10">
+			<div className="flex flex-col space-y-4">
 				<h1 className="text-xl sm:text-3xl font-bold pb-1">
 					{post.title}
 				</h1>
-				<div className="bg-zinc-100 text-zinc-900 dark:bg-zinc-800/50 dark:text-white rounded-lg px-2 py-1 tracking-tighter w-fit">
+				<div className="bg-zinc-100 text-zinc-900 dark:bg-zinc-800/50 dark:text-white text-sm rounded-lg px-2 py-1 tracking-tighter w-fit">
 					{post.publishedAt}
 				</div>
 				<Link
