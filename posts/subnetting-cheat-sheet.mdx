@@ -1,0 +1,133 @@
+---
+title: "The Subnetting Cheat Sheet"
+description: "This is the subnetting cheat sheet. We will use this table to solve any subnetting problems."
+publishedAt: "2023-07-01"
+category: "Networking"
+---
+
+Subnetting is a critical skill for network administrators and IT professionals, allowing for efficient IP address allocation and network design. However, subnetting can be complex and time-consuming, requiring meticulous calculations. In this blog post, we will introduce you to the Subnetting Cheat Sheet, a valuable tool that simplifies the subnetting process.
+
+The Subnetting Cheat Sheet is a powerful resource designed to streamline the subnetting process. This handy reference provides a concise table that highlights crucial information, including the number of subnets, hosts per subnet, network and broadcast addresses, subnet masks, and more. By utilising the Subnetting Cheat Sheet, you can quickly access the key details needed for subnetting calculations.
+
+In this example, we will show you how to use the cheat sheet to solve all seven attributes for any combination of IP address and mask. Our example problem will be <span className="text-teal-500">10.1.1.55 /28</span>. We'll find all seven attributes for this IP and mask.
+
+We will start by learning how to quickly convert from CIDR notation to a subnet mask. Our example problem provided a CIDR notation of <span className="text-teal-500">/28</span>. We will use that to find our column in the cheat sheet. Since we were given <span className="text-teal-500">/28</span>, this puts us in this column. Within our column, the CIDR row will map to the subnet row. The CIDR notation <span className="text-teal-500">/28</span> will map to the subnet value of <span className="text-teal-500">240</span>, which means our subnet mask will be <span className="text-teal-500">255.255.255.240</span>.
+
+<div className='max-w-4xl'>
+
+| Group Size | 128 | 64  | 32  | <span className="text-teal-500">16</span>   | 8   | 4   | 2   | 1   |
+| ---------- | --- | --- | --- | ------------------------------------------- | --- | --- | --- | --- |
+| Subnet     | 128 | 192 | 224 | <span className="text-teal-500">/240</span> | 248 | 252 | 254 | 255 |
+| CIDR       | /25 | /26 | /27 | <span className="text-teal-500">/28</span>  | /29 | /30 | /31 | /32 |
+
+</div>
+
+For our problem with <span className="text-teal-500">/28</span>, the group size will be <span className="text-teal-500">16</span>. Then, we will start at 10.1.1.0 and continue incrementing by the group size until we pass the target IP. So, we'll have 10.1.1.0, 10.1.1.16, 10.1.1.32, 10.1.1.48, 10.1.1.64 and at this point, we've passed our target IP of 10.1.1.55. The 10.1.1.55 would exist somewhere between these two numbers. What we just did was the hardest part.
+
+<span className="text-teal-500">10.1.1.**55** /28</span>
+
+-   .0
+-   .16
+-   .32
+-   <span className="text-teal-500">.48</span>
+-   .64
+
+From here, we can simply fill out the remaining attributes. The number before our target IP is our network ID. This makes our network ID 10.1.1.48. The number after our target IP is our next network. This makes our next network 10.1.1.64. Our broadcast IP is the number before our next network. This makes our broadcast IP 10.1.1.63.
+
+IP address AFTER Network ID is **First Host**
+
+IP address BEFORE Broadcast IP is **Last Host**
+
+Group Size is total # of IP addresses
+
+-   Don’t forget to subtract 2 if needed
+
+<div className='max-w-4xl'>
+
+| 1. Network ID First IP address in each Network         | 10.1.1.48       |
+| ------------------------------------------------------ | --------------- |
+| 2. Broadcast IP Last IP address in each Network        | 10.1.1.63       |
+| 3. First Host IP IP address after the Network ID       | 10.1.1.49       |
+| 4. Last Host IP IP address before the Broadcast IP     | 10.1.1.62       |
+| 5. Next Network IP address after the Broadcast IP      | 10.1.1.64       |
+| 6. IP Addresses Number of IP addresses in each Network | 16 (14 usable)  |
+| 7. CIDR/Subnet Converting between CID/Subnet Mask      | 255.255.255.240 |
+
+</div>
+
+The number of IP addresses is very easy. The number of IP addresses is the same as the group size. For our /28, the number of IPs is 16. Keep in mind that this is the total number of addresses. Remember that the network ID and the broadcast IP are not usable addresses. So, if you're trying to solve for the number of usable addresses, don't forget to subtract 2. For our /28, we would have 14 usable addresses.
+
+### **All 16 of the Possible /28 Networks for 10.1.1.\***
+
+<div className='max-w-4xl'>
+
+| Network Address | Usable Host Range       | Broadcast Address: |
+| --------------- | ----------------------- | ------------------ |
+| 10.1.1.0        | 10.1.1.1 - 10.1.1.14    | 10.1.1.15          |
+| 10.1.1.16       | 10.1.1.17 - 10.1.1.30   | 10.1.1.31          |
+| 10.1.1.32       | 10.1.1.33 - 10.1.1.46   | 10.1.1.47          |
+| 10.1.1.48       | 10.1.1.49 - 10.1.1.62   | 10.1.1.63          |
+| 10.1.1.64       | 10.1.1.65 - 10.1.1.78   | 10.1.1.79          |
+| 10.1.1.80       | 10.1.1.81 - 10.1.1.94   | 10.1.1.95          |
+| 10.1.1.96       | 10.1.1.97 - 10.1.1.110  | 10.1.1.111         |
+| 10.1.1.112      | 10.1.1.113 - 10.1.1.126 | 10.1.1.127         |
+| 10.1.1.128      | 10.1.1.129 - 10.1.1.142 | 10.1.1.143         |
+| 10.1.1.144      | 10.1.1.145 - 10.1.1.158 | 10.1.1.159         |
+| 10.1.1.160      | 10.1.1.161 - 10.1.1.174 | 10.1.1.175         |
+| 10.1.1.176      | 10.1.1.177 - 10.1.1.190 | 10.1.1.191         |
+| 10.1.1.192      | 10.1.1.193 - 10.1.1.206 | 10.1.1.207         |
+| 10.1.1.208      | 10.1.1.209 - 10.1.1.222 | 10.1.1.223         |
+| 10.1.1.224      | 10.1.1.225 - 10.1.1.238 | 10.1.1.239         |
+| 10.1.1.240      | 10.1.1.241 - 10.1.1.254 | 10.1.1.255         |
+
+</div>
+
+To extend the cheat sheet to include a third octet, all you have to do is continue where we left off. We ended on a slash 25, so you'll continue with a slash 24 on the next row.
+
+With this extension, we can now use the cheat sheet to solve subnetting problems in the third octet. We will demonstrate this with one example. The process for solving subnetting problems in the third octet is largely the same as what we've been doing before, with one exception in solving for the number of IPs.
+
+<div className='max-w-4xl'>
+
+| Group Size | 128 | 64  | <span className='text-teal-500'>32</span>  | /16  | 8   | 4   | 2   | 1   |
+| ---------- | --- | --- | ------------------------------------------ | ---- | --- | --- | --- | --- |
+| Subnet     | 128 | 192 | <span className='text-teal-500'>224</span> | /240 | 248 | 252 | 254 | 255 |
+| CIDR       | /25 | /26 | /27                                        | /28  | /29 | /30 | /31 | /32 |
+| 3 Octet    | /17 | /18 | <span className='text-teal-500'>/19</span> | /20  | /21 | /22 | /23 | /24 |
+
+</div>
+Let's jump into our first example problem: <span className='text-teal-500'>10.4.77.188/19.</span> We start by using the subnet notation to find our column in the cheat sheet. The given slash <span className='text-teal-500'>19</span> puts us in this column. Next, we convert between subnet mask and cider notation. In the third octet, a slash 19 equates to the subnet mask <span className='text-teal-500'>255.255.224.0.</span>
+
+Next, we locate the group size, which is 32 for us, and we increment by this value in the relevant column. Since the slash 19 is in the third octet, the third octet is our relevant column. We start from 0 in sets of 32 until we pass the target of 77. So, we have 0, 32, 64, and at 96, we've passed our target of 77 and can stop.
+
+<span className="text-teal-500">10.4.**77**.188 /19</span>
+
+-   .0
+-   .32
+-   .64
+-   .96
+
+We fill in the remaining octets by bringing down the values from our target for the first two octets and using 0 for the fourth octet. This completes all the values in the third octet. From this point, the process is identical to what we've done before.
+
+-   10.4.**0**.0
+-   10.4.**32**.0
+-   10.4.**64**.0
+-   10.4.**96**.0
+
+<div className='max-w-4xl'>
+
+| 1. Network ID First IP address in each Network         | 10.4.64.0     |
+| ------------------------------------------------------ | ------------- |
+| 2. Broadcast IP Last IP address in each Network        | 10.4.95.255   |
+| 3. First Host IP IP address after the Network ID       | 10.4.64.1     |
+| 4. Last Host IP IP address before the Broadcast IP     | 10.4.95.254   |
+| 5. Next Network IP address after the Broadcast IP      | 10.4.96.0     |
+| 6. IP Addresses Number of IP addresses in each Network | 2 ^ 13 = 8192 |
+| 7. CIDR/Subnet Converting between CID/Subnet Mask      | 255.255.224.0 |
+
+</div>
+
+We identify the network ID and next network based on the IP addresses before and after our target IP. The IP address before our next network is the broadcast IP. Since our next network was 10.4.96.0, our broadcast IP would be 10.4.95.255.
+
+The IP address after our network ID is the first host, and the IP address before our broadcast IP is the last host. Finally, to calculate the number of addresses, we use the "2 to the end" notation. For a slash 19, we take 32 minus 19, which gives us 13. Then, we raise 2 to the power of 13, resulting in a total number of addresses of 8,192.
+
+And just like that, we've completed the process to solve for all seven attributes using the same seven steps and cheat sheet as before.

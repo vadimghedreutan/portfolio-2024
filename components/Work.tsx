@@ -28,7 +28,7 @@ const variants = {
 	exit: { opacity: 0, y: 20 },
 }
 
-const Work = ({ image, title, link, description }: Props) => {
+const Work = ({ image, title, link, description, publishedAt }: Props) => {
 	const [isLoading, setLoading] = useState(true)
 	const controls = useAnimation()
 	const [ref, inView] = useInView()
@@ -61,7 +61,12 @@ const Work = ({ image, title, link, description }: Props) => {
 				</div>
 			</Link>
 			<div className="p-3">
-				<p className="text-lg sm:font-medium">{title} -</p>
+				<p className="text-lg sm:font-medium">
+					{title} -{" "}
+					<span className="text-sm text-zinc-500 dark:text-zinc-600">
+						{publishedAt}
+					</span>
+				</p>
 				<p className="text-zinc-500 text-base">{description}</p>
 			</div>
 		</motion.div>

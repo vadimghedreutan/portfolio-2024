@@ -24,7 +24,13 @@ const variants = {
 	exit: { opacity: 0, y: 15 },
 }
 
-const ProjectCard = ({ link, image, title, description }: Props) => {
+const ProjectCard = ({
+	link,
+	image,
+	title,
+	description,
+	publishedAt,
+}: Props) => {
 	const [isLoading, setLoading] = useState(true)
 	const controls = useAnimation()
 	const [ref, inView] = useInView()
@@ -57,7 +63,12 @@ const ProjectCard = ({ link, image, title, description }: Props) => {
 				</div>
 			</Link>
 			<div className="p-3">
-				<p className="sm:text-lg sm:font-medium">{title} -</p>
+				<p className="sm:text-lg sm:font-medium">
+					{title} -{" "}
+					<span className="text-sm text-zinc-500 dark:text-zinc-600">
+						{publishedAt}
+					</span>
+				</p>
 				<p className="text-zinc-500 text-base">{description}</p>
 			</div>
 		</motion.div>
