@@ -1,6 +1,5 @@
 import Work from "./Work"
 import { items } from "./info"
-import Link from "next/link"
 
 const Works = () => {
 	return (
