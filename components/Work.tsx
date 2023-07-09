@@ -50,7 +50,7 @@ const Work = ({ image, title, link, description, publishedAt }: Props) => {
 						src={image}
 						alt={title}
 						fill
-						sizes="100"
+						sizes="100vw"
 						priority
 						className={clsx(
 							"object-cover",
