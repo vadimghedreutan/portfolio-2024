@@ -5,6 +5,20 @@ import type { Metadata } from "next"
 import Header from "components/Header"
 import Footer from "components/Footer"
 
+const graphik = localFont({
+	src: "../public/fonts/Graphik-Regular.ttf",
+	weight: "400",
+	variable: "--font-graphik",
+	display: "swap",
+})
+
+const thunder_hc = localFont({
+	src: "../public/fonts/Thunder-BoldHC.otf",
+	weight: "700",
+	variable: "--font-thunder_hc",
+	display: "swap",
+})
+
 export const metadata: Metadata = {
 	title: {
 		default: "Vadim Ghedreutan",
@@ -50,13 +64,6 @@ export const metadata: Metadata = {
 	},
 }
 
-const thunder_hc = localFont({
-	src: "../public/fonts/Thunder-BoldHC.otf",
-	weight: "700",
-	variable: "--font-thunder_hc",
-	display: "swap",
-})
-
 export default function RootLayout({
 	children,
 }: {
@@ -67,10 +74,11 @@ export default function RootLayout({
 			lang="en"
 			className={clsx(
 				"text-zinc-900 bg-white dark:text-white dark:bg-zinc-900",
+				graphik.variable,
 				thunder_hc.variable
 			)}
 		>
-			<body>
+			<body className="antialiased">
 				<div className="w-full flex flex-col min-h-screen">
 					<Header />
 					<main className="flex-grow">{children}</main>

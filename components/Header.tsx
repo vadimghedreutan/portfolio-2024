@@ -23,7 +23,7 @@ const Header = () => {
 		pathname = "/blog"
 	}
 	return (
-		<header className="px-5 sm:px-10 py-6 sm:py-10">
+		<header className="px-5 sm:px-10 py-6 sm:py-10 tracking-tight">
 			<div className="flex items-center justify-between">
 				<div className="relative h-12 w-12 flex items-center cursor-pointer">
 					<Logo />

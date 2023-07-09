@@ -10,6 +10,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				thunder_hc: "var(--font-thunder_hc)",
+				sans: "var(--font-graphik)",
 			},
 			gridTemplateColumns: {
 				fluid: "repeat(auto-fit, minmax(20rem, 1fr))",

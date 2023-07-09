@@ -22,10 +22,10 @@ const Hero = () => {
 							priority
 						/>
 
-						<h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-							System Administrator, Developer
+						<h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+							hey, I'm vadim 👋
 						</h1>
-						<p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 pb-2">
+						<p className="prose mt-6 text-zinc-600 dark:text-zinc-400 pb-2">
 							Hey, I'm Vadim Ghedreutan. My expertise as a system
 							administrator includes maintaining the IT
 							infrastructure, troubleshooting issues, proficient
