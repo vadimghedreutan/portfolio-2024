@@ -3,42 +3,69 @@ import Link from "next/link"
 import Logo from "./logo"
 import clsx from "clsx"
 import { usePathname } from "next/navigation"
+import { LayoutGroup, motion } from "framer-motion"
 
-const links = [
-	{ href: "/", text: "Home" },
-	{ href: "/projects", text: "Projects" },
-	{ href: "/blog", text: "Blog" },
-]
+const navItems = {
+	"/": {
+		name: "home",
+	},
+	"/projects": {
+		name: "projects",
+	},
+	"/blog": {
+		name: "blog",
+	},
+}
 
 const Header = () => {
-	const path = usePathname()
+	let pathname = usePathname() || "/"
+	if (pathname.includes("/blog/")) {
+		pathname = "/blog"
+	}
 	return (
 		<header className="px-5 sm:px-10 py-6 sm:py-10">
 			<div className="flex items-center justify-between">
 				<div className="relative h-12 w-12 flex items-center cursor-pointer">
 					<Logo />
 				</div>
-
-				<nav className="flex items-center">
-					<ul className="flex space-x-6">
-						{links.map((l) => (
-							<li key={l.href} className="transition-all">
-								<Link
-									href={l.href}
-									className={clsx(
-										"transition-all hover:text-zinc-600 cursor-pointer",
-										{
-											"text-zinc-500": l.href !== path,
-											"font-bold": l.href === path,
-										}
-									)}
-								>
-									{l.text}
-								</Link>
-							</li>
-						))}
-					</ul>
-				</nav>
+				<LayoutGroup>
+					<nav className="flex items-center">
+						<ul className="flex flex-row space-x-4">
+							{Object.entries(navItems).map(
+								([path, { name }]) => {
+									const isActive = path === pathname
+									return (
+										<Link
+											key={path}
+											href={path}
+											className={clsx(
+												"transition-all hover:text-zinc-800 dark:hover:text-zinc-200 flex align-middle",
+												{
+													"text-zinc-500": !isActive,
+												}
+											)}
+										>
+											<span className="relative py-1 px-2">
+												{name}
+												{path === pathname ? (
+													<motion.div
+														className="absolute h-[1px] top-7 mx-2 inset-0 bg-zinc-200 dark:bg-zinc-800 z-[-1] dark:bg-gradient-to-r from-transparent to-zinc-900"
+														layoutId="sidebar"
+														transition={{
+															type: "spring",
+															stiffness: 350,
+															damping: 30,
+														}}
+													/>
+												) : null}
+											</span>
+										</Link>
+									)
+								}
+							)}
+						</ul>
+					</nav>
+				</LayoutGroup>
 			</div>
 		</header>
 	)
