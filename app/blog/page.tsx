@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const BlogPage = () => {
 	return (
-		<div className="px-5 sm:px-10 2xl:max-w-7xl mx-auto">
+		<div className="px-5 sm:px-10 big:max-w-screen-2xl mx-auto">
 			<h1 className="font-thunder_hc tracking-wider text-4xl bg-primary p-2 w-fit rounded-lg text-white">
 				Blog<span className="text-white">.</span>
 			</h1>

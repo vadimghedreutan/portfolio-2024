@@ -3,7 +3,7 @@ import { allBlogs } from "contentlayer/generated"
 
 const BlogFooter = () => {
 	return (
-		<div className="py-12 px-5 sm:px-10 2xl:max-w-7xl mx-auto">
+		<div className="py-12 px-5 sm:px-10 big:max-w-screen-2xl mx-auto">
 			<h1 className="font-thunder_hc text-4xl font-medium py-4">
 				Articles
 				<span className="text-primary"> .</span>

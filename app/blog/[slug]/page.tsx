@@ -60,7 +60,7 @@ export default async function Blog({ params }) {
 	}
 
 	return (
-		<section className="2xl:max-w-7xl mx-auto px-5 sm:px-10">
+		<section className="big:max-w-screen-2xl mx-auto px-5 sm:px-10">
 			<div className="flex flex-col space-y-4">
 				<h1 className="text-xl sm:text-3xl font-bold pb-1">
 					{post.title}
