@@ -45,7 +45,7 @@ const Work = ({ image, title, link, description, publishedAt }: Props) => {
 			variants={variants}
 		>
 			<Link href={link} target="_blank" className="mx-auto flex flex-col">
-				<div className="relative aspect-video lg:aspect-[4/3] w-full overflow-hidden shadow-md rounded-2xl">
+				<div className="relative aspect-[4/3] w-full overflow-hidden shadow-md rounded-2xl">
 					<Image
 						src={image}
 						alt={title}
