@@ -2,15 +2,10 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { allBlogs } from "contentlayer/generated"
+import Balancer from "react-wrap-balancer"
 import { Mdx } from "components/mdx"
 import { BsArrowLeftShort } from "react-icons/bs"
 import Link from "next/link"
-
-export async function generateStaticParams() {
-	return allBlogs.map((post) => ({
-		slug: post.slug,
-	}))
-}
 
 export async function generateMetadata({
 	params,
@@ -52,6 +47,35 @@ export async function generateMetadata({
 	}
 }
 
+function formatDate(date: string) {
+	const currentDate = new Date()
+	const targetDate = new Date(date)
+
+	const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
+	const monthsAgo = currentDate.getMonth() - targetDate.getMonth()
+	const daysAgo = currentDate.getDate() - targetDate.getDate()
+
+	let formattedDate = ""
+
+	if (yearsAgo > 0) {
+		formattedDate = `${yearsAgo}y ago`
+	} else if (monthsAgo > 0) {
+		formattedDate = `${monthsAgo}mo ago`
+	} else if (daysAgo > 0) {
+		formattedDate = `${daysAgo}d ago`
+	} else {
+		formattedDate = "Today"
+	}
+
+	const fullDate = targetDate.toLocaleString("en-us", {
+		month: "long",
+		day: "numeric",
+		year: "numeric",
+	})
+
+	return `${fullDate} (${formattedDate})`
+}
+
 export default async function Blog({ params }) {
 	const post = allBlogs.find((post) => post.slug === params.slug)
 
@@ -63,10 +87,10 @@ export default async function Blog({ params }) {
 		<section className="big:max-w-screen-2xl mx-auto px-5 sm:px-10">
 			<div className="flex flex-col space-y-4">
 				<h1 className="text-xl sm:text-3xl font-bold pb-1">
-					{post.title}
+					<Balancer>{post.title}</Balancer>
 				</h1>
 				<div className="bg-zinc-100 text-zinc-900 dark:bg-zinc-800/50 dark:text-white text-sm rounded-lg px-2 py-1 tracking-tighter w-fit">
-					{post.publishedAt}
+					{formatDate(post.publishedAt)}
 				</div>
 				<Link
 					href="/blog"
