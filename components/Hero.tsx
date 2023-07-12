@@ -10,7 +10,7 @@ import me from "../app/profile_art.webp"
 const Hero = () => {
 	return (
 		<div className="relative px-5 sm:px-10 w-full big:max-w-screen-2xl mx-auto">
-			<div className="my-12">
+			<div className="mb-12">
 				<div className="w-full">
 					<div className="max-w-2xl flex flex-col space-y-6">
 						<Image
@@ -26,14 +26,11 @@ const Hero = () => {
 							hey, I'm vadim 👋
 						</h1>
 						<p className="prose mt-6 text-zinc-600 dark:text-zinc-400 pb-2">
-							My expertise as a system administrator includes
-							maintaining the IT infrastructure, troubleshooting
-							issues, proficient in a range of technologies,
-							including operating systems, databases, servers, and
-							networks. As a web developer skilled in designing,
-							developing, and maintaining visually appealing and
-							user-friendly websites using various programming
-							languages and frameworks.
+							I'm a System Administrator, Web Developer,
+							proficient in troubleshooting issues, operating
+							systems, databases, servers, and networks. Skilled
+							in designing visually appealing, user-friendly
+							websites using multiple languages and frameworks.
 						</p>
 
 						<div className="flex items-center space-x-4">

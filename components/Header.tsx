@@ -23,14 +23,14 @@ const Header = () => {
 		pathname = "/blog"
 	}
 	return (
-		<header className="px-5 sm:px-10 py-6 sm:py-10 tracking-tight">
-			<div className="flex items-center justify-between">
-				<div className="relative h-12 w-12 flex items-center cursor-pointer">
+		<header className="px-5 sm:px-10 pt-14 mb-16 tracking-tight">
+			<div className="flex items-start ">
+				{/* <div className="relative h-12 w-12 flex items-center cursor-pointer">
 					<Logo />
-				</div>
+				</div> */}
 				<LayoutGroup>
 					<nav className="flex items-center">
-						<ul className="flex flex-row space-x-4">
+						<ul className="flex flex-row space-x-3">
 							{Object.entries(navItems).map(
 								([path, { name }]) => {
 									const isActive = path === pathname

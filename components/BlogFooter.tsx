@@ -9,7 +9,7 @@ const BlogFooter = () => {
 				<span className="text-primary"> .</span>
 			</h1>
 
-			<div className="grid sm:grid-cols-2 gap-2 mt-2">
+			<div className="w-full max-w-2xl">
 				<article className="flex flex-col gap-8">
 					{allBlogs
 						.sort((a, b) => {
@@ -57,7 +57,6 @@ const BlogFooter = () => {
 							</div>
 						))}
 				</article>
-				<div></div>
 			</div>
 		</div>
 	)
