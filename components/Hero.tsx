@@ -46,6 +46,7 @@ const Hero = () => {
 								}}
 								href="https://github.com/vadimghedreutan"
 								target="_blank"
+								aria-label="Github"
 							>
 								<FaGithub
 									className="h-6 w-6 sm:h-7 sm:w-7 cursor-pointer 
@@ -64,6 +65,7 @@ const Hero = () => {
 								}}
 								href="https://twitter.com/GhedreutanVadim"
 								target="_blank"
+								aria-label="Twitter"
 							>
 								<FaTwitter
 									className="h-6 w-6 sm:h-7 sm:w-7 cursor-pointer
@@ -82,6 +84,7 @@ const Hero = () => {
 								}}
 								href="mailto:dev.vadimghedreutan@gmail.com"
 								target="_blank"
+								aria-label="Email"
 							>
 								<MdEmail
 									className="h-6 w-6 sm:h-7 sm:w-7 cursor-pointer

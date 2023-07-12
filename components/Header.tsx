@@ -30,7 +30,7 @@ const Header = () => {
 				</div> */}
 				<LayoutGroup>
 					<nav className="flex items-center">
-						<ul className="flex flex-row space-x-3">
+						<div className="flex flex-row space-x-3">
 							{Object.entries(navItems).map(
 								([path, { name }]) => {
 									const isActive = path === pathname
@@ -63,7 +63,7 @@ const Header = () => {
 									)
 								}
 							)}
-						</ul>
+						</div>
 					</nav>
 				</LayoutGroup>
 			</div>
