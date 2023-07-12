@@ -7,6 +7,12 @@ export const metadata: Metadata = {
 	description: "Read my posts on web development, sysadmin, and more.",
 }
 
+export async function generateStaticParams() {
+	return allBlogs.map((post) => ({
+		slug: post.slug,
+	}))
+}
+
 const BlogPage = () => {
 	return (
 		<div className="px-5 sm:px-10 big:max-w-screen-2xl mx-auto">

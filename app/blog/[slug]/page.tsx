@@ -7,6 +7,12 @@ import { Mdx } from "components/mdx"
 import { BsArrowLeftShort } from "react-icons/bs"
 import Link from "next/link"
 
+export async function generateStaticParams() {
+	return allBlogs.map((post) => ({
+		slug: post.slug,
+	}))
+}
+
 export async function generateMetadata({
 	params,
 }): Promise<Metadata | undefined> {
