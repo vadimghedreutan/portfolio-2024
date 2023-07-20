@@ -1,13 +1,52 @@
 "use client"
 import { useState, useEffect } from "react"
 import clsx from "clsx"
-import { motion } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import { FaGithub, FaTwitter } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
 
+const socials = [
+	{
+		name: "Github",
+		link: "https://github.com/vadimghedreutan",
+		icon: <FaGithub className="h-6 w-6 sm:h-7 sm:w-7" />,
+	},
+	{
+		name: "Twitter",
+		link: "https://twitter.com/GhedreutanVadim",
+		icon: <FaTwitter className="h-6 w-6 sm:h-7 sm:w-7" />,
+	},
+	{
+		name: "Email",
+		link: "mailto:dev.vadimghedreutan@gmail.com",
+		icon: <MdEmail className="h-6 w-6 sm:h-7 sm:w-7" />,
+	},
+]
+
+const variants = {
+	visible: (index: number): any => ({
+		opacity: 1,
+		transition: {
+			type: "spring",
+			duration: 1,
+			stiffness: 50,
+			delay: index * 0.1,
+		},
+	}),
+	hidden: { opacity: 0 },
+}
+
 const Hero = () => {
 	const [isLoading, setLoading] = useState(true)
+	const controls = useAnimation()
+	const [ref, inView] = useInView()
+	useEffect(() => {
+		if (inView) {
+			controls.start("visible")
+		}
+	}, [controls, inView])
 	return (
 		<div className="relative px-5 sm:px-10 w-full big:max-w-screen-2xl mx-auto">
 			<div className="mb-12">
@@ -20,7 +59,7 @@ const Hero = () => {
 						<div className="columns-2 gap-4 sm:w-4/5">
 							<div className="relative h-40 mb-4">
 								<Image
-									src="/profile/img_0166.webp"
+									src="/profile/img_0166_c.webp"
 									alt="vadim ghedreutan"
 									fill
 									sizes="100vw"
@@ -48,7 +87,7 @@ const Hero = () => {
 							</div>
 							<div className="relative h-80 mb-4 ">
 								<Image
-									src="/profile/img_0205.webp"
+									src="/profile/img_0205_c.webp"
 									alt="vadim ghedreutan"
 									fill
 									sizes="100vw"
@@ -60,9 +99,9 @@ const Hero = () => {
 									onLoadingComplete={() => setLoading(false)}
 								/>
 							</div>
-							<div className="relative h-40 sm:mb-0  ">
+							<div className="relative h-40 sm:mb-0">
 								<Image
-									src="/profile/img_0270.webp"
+									src="/profile/img_0270_c.webp"
 									alt="vadim ghedreutan"
 									fill
 									sizes="100vw"
@@ -84,63 +123,23 @@ const Hero = () => {
 						</p>
 
 						<div className="flex items-center space-x-4">
-							<motion.a
-								animate={{
-									scale: [0, 1, 1.1, 1],
-								}}
-								transition={{
-									duration: 1,
-									ease: "easeInOut",
-									stiffness: 50,
-									delay: 0.3,
-								}}
-								href="https://github.com/vadimghedreutan"
-								target="_blank"
-								aria-label="Github"
-							>
-								<FaGithub
-									className="h-6 w-6 sm:h-7 sm:w-7 cursor-pointer 
-              transition-all duration-500 ease-out hover:scale-125"
-								/>
-							</motion.a>
-							<motion.a
-								animate={{
-									scale: [0, 1, 1.1, 1],
-								}}
-								transition={{
-									duration: 1,
-									ease: "easeInOut",
-									delay: 0.2,
-									stiffness: 50,
-								}}
-								href="https://twitter.com/GhedreutanVadim"
-								target="_blank"
-								aria-label="Twitter"
-							>
-								<FaTwitter
-									className="h-6 w-6 sm:h-7 sm:w-7 cursor-pointer
-              transition-all duration-500 ease-out hover:scale-125"
-								/>
-							</motion.a>
-							<motion.a
-								animate={{
-									scale: [0, 1, 1.1, 1],
-								}}
-								transition={{
-									duration: 1,
-									ease: "easeInOut",
-									delay: 0.2,
-									stiffness: 50,
-								}}
-								href="mailto:dev.vadimghedreutan@gmail.com"
-								target="_blank"
-								aria-label="Email"
-							>
-								<MdEmail
-									className="h-6 w-6 sm:h-7 sm:w-7 cursor-pointer
-              transition-all duration-500 ease-out hover:scale-125"
-								/>
-							</motion.a>
+							{socials.map(({ name, link, icon }, index) => (
+								<motion.a
+									key={index}
+									href={link}
+									target="_blank"
+									aria-label={name}
+									className="cursor-pointer
+									transition-all duration-500 ease-out hover:scale-125"
+									custom={index}
+									ref={ref}
+									animate={controls}
+									initial="hidden"
+									variants={variants}
+								>
+									{icon}
+								</motion.a>
+							))}
 						</div>
 					</div>
 				</div>
