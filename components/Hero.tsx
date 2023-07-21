@@ -1,8 +1,7 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import clsx from "clsx"
-import { motion, useAnimation } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { motion } from "framer-motion"
 import Image from "next/image"
 import { FaGithub, FaTwitter } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
@@ -46,13 +45,6 @@ const variants = {
 
 const Hero = () => {
 	const [isLoading, setLoading] = useState(true)
-	const controls = useAnimation()
-	const [ref, inView] = useInView()
-	useEffect(() => {
-		if (inView) {
-			controls.start("visible")
-		}
-	}, [controls, inView])
 	return (
 		<div className="relative px-5 sm:px-10 w-full big:max-w-screen-2xl mx-auto">
 			<div className="mb-12">
@@ -139,8 +131,7 @@ const Hero = () => {
 									aria-label={name}
 									className="cursor-pointer"
 									custom={index}
-									ref={ref}
-									animate={controls}
+									animate="visible"
 									initial="hidden"
 									variants={variants}
 								>
