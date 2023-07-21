@@ -38,7 +38,7 @@ const variants = {
 			type: "spring",
 			duration: 1,
 			stiffness: 50,
-			delay: index * 0.2,
+			delay: index * 0.1,
 		},
 	}),
 	hidden: { opacity: 0 },
@@ -61,6 +61,13 @@ const Hero = () => {
 						<h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">
 							hey, I'm vadim 👋
 						</h1>
+						<p className="prose mt-6 text-zinc-600 dark:text-zinc-400 pb-2">
+							I'm a System Administrator, Web Developer,
+							proficient in troubleshooting issues, operating
+							systems, databases, servers, and networks. Skilled
+							in designing visually appealing, user-friendly
+							websites using multiple languages and frameworks.
+						</p>
 						{/* grid gallery */}
 						<div className="columns-2 gap-4 sm:w-4/5">
 							<div className="relative h-40 mb-4">
@@ -120,13 +127,6 @@ const Hero = () => {
 								/>
 							</div>
 						</div>
-						<p className="prose mt-6 text-zinc-600 dark:text-zinc-400 pb-2">
-							I'm a System Administrator, Web Developer,
-							proficient in troubleshooting issues, operating
-							systems, databases, servers, and networks. Skilled
-							in designing visually appealing, user-friendly
-							websites using multiple languages and frameworks.
-						</p>
 
 						<div className="flex items-center space-x-4">
 							{socials.map(({ name, link, icon }, index) => (
