@@ -66,7 +66,7 @@ const Hero = () => {
 							<div className="relative h-40 mb-4">
 								<Image
 									src="/profile/img_0166.webp"
-									alt="vadim ghedreutan"
+									alt="kartbahn karlsruhe"
 									fill
 									sizes="100vw"
 									priority
@@ -94,7 +94,7 @@ const Hero = () => {
 							<div className="relative h-80 mb-4 ">
 								<Image
 									src="/profile/img_0205.webp"
-									alt="vadim ghedreutan"
+									alt="Algarve"
 									fill
 									sizes="100vw"
 									priority
@@ -108,7 +108,7 @@ const Hero = () => {
 							<div className="relative h-40 sm:mb-0">
 								<Image
 									src="/profile/img_0270.webp"
-									alt="vadim ghedreutan"
+									alt="Snowboard Freiburg"
 									fill
 									sizes="100vw"
 									priority
