@@ -11,17 +11,23 @@ const socials = [
 	{
 		name: "Github",
 		link: "https://github.com/vadimghedreutan",
-		icon: <FaGithub className="h-6 w-6 sm:h-7 sm:w-7" />,
+		icon: (
+			<FaGithub className="h-6 w-6 sm:h-7 sm:w-7 transition-all duration-300 ease-out hover:scale-125" />
+		),
 	},
 	{
 		name: "Twitter",
 		link: "https://twitter.com/GhedreutanVadim",
-		icon: <FaTwitter className="h-6 w-6 sm:h-7 sm:w-7" />,
+		icon: (
+			<FaTwitter className="h-6 w-6 sm:h-7 sm:w-7 transition-all duration-300 ease-out hover:scale-125" />
+		),
 	},
 	{
 		name: "Email",
 		link: "mailto:dev.vadimghedreutan@gmail.com",
-		icon: <MdEmail className="h-6 w-6 sm:h-7 sm:w-7" />,
+		icon: (
+			<MdEmail className="h-6 w-6 sm:h-7 sm:w-7 transition-all duration-300 ease-out hover:scale-125" />
+		),
 	},
 ]
 
@@ -32,7 +38,7 @@ const variants = {
 			type: "spring",
 			duration: 1,
 			stiffness: 50,
-			delay: index * 0.1,
+			delay: index * 0.2,
 		},
 	}),
 	hidden: { opacity: 0 },
@@ -59,7 +65,7 @@ const Hero = () => {
 						<div className="columns-2 gap-4 sm:w-4/5">
 							<div className="relative h-40 mb-4">
 								<Image
-									src="/profile/img_0166_c.webp"
+									src="/profile/img_0166.webp"
 									alt="vadim ghedreutan"
 									fill
 									sizes="100vw"
@@ -79,7 +85,7 @@ const Hero = () => {
 									sizes="100vw"
 									priority
 									className={clsx(
-										"object-cover rounded-lg grid-areas-[2/1/4/2]",
+										"object-cover rounded-lg",
 										isLoading ? "grayscale" : "grayscale-0"
 									)}
 									onLoadingComplete={() => setLoading(false)}
@@ -87,7 +93,7 @@ const Hero = () => {
 							</div>
 							<div className="relative h-80 mb-4 ">
 								<Image
-									src="/profile/img_0205_c.webp"
+									src="/profile/img_0205.webp"
 									alt="vadim ghedreutan"
 									fill
 									sizes="100vw"
@@ -101,7 +107,7 @@ const Hero = () => {
 							</div>
 							<div className="relative h-40 sm:mb-0">
 								<Image
-									src="/profile/img_0270_c.webp"
+									src="/profile/img_0270.webp"
 									alt="vadim ghedreutan"
 									fill
 									sizes="100vw"
@@ -129,8 +135,7 @@ const Hero = () => {
 									href={link}
 									target="_blank"
 									aria-label={name}
-									className="cursor-pointer
-									transition-all duration-500 ease-out hover:scale-125"
+									className="cursor-pointer"
 									custom={index}
 									ref={ref}
 									animate={controls}
