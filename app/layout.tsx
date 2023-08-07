@@ -73,7 +73,7 @@ export default function RootLayout({
 		<html
 			lang="en"
 			className={clsx(
-				"text-zinc-900 bg-white dark:text-white dark:bg-[#111010]",
+				"text-zinc-900 bg-white dark:text-white dark:bg-[#131B23]",
 				graphik.variable,
 				thunder_hc.variable
 			)}
