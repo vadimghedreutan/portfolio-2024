@@ -47,7 +47,7 @@ const ProjectCard = ({
 			variants={variants}
 		>
 			<Link href={link} target="_blank" className="mx-auto flex flex-col">
-				<div className="relative aspect-[4/3] w-full overflow-hidden shadow-md rounded-2xl">
+				<div className="relative aspect-[4/3] w-full overflow-hidden shadow-xl rounded-2xl">
 					<Image
 						src={image}
 						alt={title}
@@ -69,7 +69,9 @@ const ProjectCard = ({
 						{publishedAt}
 					</span>
 				</p>
-				<p className="text-zinc-500 text-base">{description}</p>
+				<p className="text-zinc-500 text-sm truncate ...">
+					{description}
+				</p>
 			</div>
 		</motion.div>
 	)

@@ -5,17 +5,17 @@ import type { Metadata } from "next"
 import Header from "components/Header"
 import Footer from "components/Footer"
 
-const graphik = localFont({
-	src: "../public/fonts/Graphik-Regular.ttf",
-	weight: "400",
-	variable: "--font-graphik",
-	display: "swap",
-})
-
 const thunder_hc = localFont({
 	src: "../public/fonts/Thunder-BoldHC.otf",
 	weight: "700",
 	variable: "--font-thunder_hc",
+	display: "swap",
+})
+
+const mabry = localFont({
+	src: "../public/fonts/Mabry-Pro-Medium.ttf",
+	weight: "400",
+	variable: "--font-mabry_pro_medium",
 	display: "swap",
 })
 
@@ -74,8 +74,8 @@ export default function RootLayout({
 			lang="en"
 			className={clsx(
 				"text-zinc-900 bg-white dark:text-white dark:bg-[#131B23]",
-				graphik.variable,
-				thunder_hc.variable
+				thunder_hc.variable,
+				mabry.variable
 			)}
 		>
 			<body className="antialiased">

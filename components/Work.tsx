@@ -67,7 +67,9 @@ const Work = ({ image, title, link, description, publishedAt }: Props) => {
 						{publishedAt}
 					</span>
 				</p>
-				<p className="text-zinc-500 text-base">{description}</p>
+				<p className="text-zinc-500 text-sm truncate ...">
+					{description}
+				</p>
 			</div>
 		</motion.div>
 	)

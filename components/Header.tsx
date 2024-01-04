@@ -1,6 +1,5 @@
 "use client"
 import Link from "next/link"
-import Logo from "./logo"
 import clsx from "clsx"
 import { usePathname } from "next/navigation"
 import { LayoutGroup, motion } from "framer-motion"
@@ -25,9 +24,6 @@ const Header = () => {
 	return (
 		<header className="px-5 sm:px-10 pt-14 mb-16 tracking-tight">
 			<div className="flex items-start ">
-				{/* <div className="relative h-12 w-12 flex items-center cursor-pointer">
-					<Logo />
-				</div> */}
 				<LayoutGroup>
 					<nav className="flex items-center">
 						<div className="flex flex-row space-x-3">
@@ -41,7 +37,7 @@ const Header = () => {
 											className={clsx(
 												"transition-all hover:text-zinc-800 dark:hover:text-zinc-200 flex align-middle",
 												{
-													"text-zinc-500": !isActive,
+													"font-bold": isActive,
 												}
 											)}
 										>
@@ -49,7 +45,7 @@ const Header = () => {
 												{name}
 												{path === pathname ? (
 													<motion.div
-														className="absolute h-[1px] top-7 mx-2 inset-0 bg-zinc-200 dark:bg-zinc-800 z-[-1] dark:bg-gradient-to-r from-transparent to-zinc-900"
+														className="absolute h-[1px] top-7 mx-2 inset-0 bg-zinc-200 dark:bg-zinc-700 z-[-1] dark:bg-gradient-to-r from-transparent to-zinc-700"
 														layoutId="sidebar"
 														transition={{
 															type: "spring",

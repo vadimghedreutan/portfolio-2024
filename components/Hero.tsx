@@ -46,20 +46,19 @@ const variants = {
 const Hero = () => {
 	const [isLoading, setLoading] = useState(true)
 	return (
-		<div className="relative px-5 sm:px-10 w-full big:max-w-screen-2xl mx-auto">
+		<div className="relative px-5 w-full max-w-2xl mx-auto">
 			<div className="mb-12">
 				<div className="w-full">
-					<div className="max-w-2xl flex flex-col space-y-6">
-						<h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+					<div className="flex flex-col sm:space-y-12 space-y-8">
+						<h1 className="text-3xl font-bold tracking-tighter sm:text-4xl font-mabry_pro_medium">
 							hey, I'm vadim 👋
 						</h1>
 
-						{/* grid gallery */}
-						<div className="columns-2 gap-4 sm:w-4/5">
+						<div className="columns-3 sm:gap-4 gap-2">
 							<div className="relative h-40 mb-4">
 								<Image
 									src="/profile/img_0166.webp"
-									alt="kartbahn karlsruhe"
+									alt="Vadim Ghedreutan"
 									fill
 									sizes="100vw"
 									priority
@@ -72,8 +71,8 @@ const Hero = () => {
 							</div>
 							<div className="relative h-80 sm:mb-0 ">
 								<Image
-									src="/profile/profile_600_800.webp"
-									alt="vadim ghedreutan"
+									src="/profile/img_0457.webp"
+									alt="Parque regional Montaña de Riaño"
 									fill
 									sizes="100vw"
 									priority
@@ -87,7 +86,7 @@ const Hero = () => {
 							<div className="relative h-80 mb-4 ">
 								<Image
 									src="/profile/img_0205.webp"
-									alt="Algarve"
+									alt="Praia da Manta Rota Algarve"
 									fill
 									sizes="100vw"
 									priority
@@ -112,9 +111,37 @@ const Hero = () => {
 									onLoadingComplete={() => setLoading(false)}
 								/>
 							</div>
+							<div className="relative h-40 mb-4">
+								<Image
+									src="/profile/img_0215.webp"
+									alt="Cabanas de Tavira"
+									fill
+									sizes="100vw"
+									priority
+									className={clsx(
+										"object-cover rounded-lg",
+										isLoading ? "grayscale" : "grayscale-0"
+									)}
+									onLoadingComplete={() => setLoading(false)}
+								/>
+							</div>
+							<div className="relative h-80 sm:mb-0 ">
+								<Image
+									src="/profile/img_0213.webp"
+									alt="Cabanas de Tavira"
+									fill
+									sizes="100vw"
+									priority
+									className={clsx(
+										"object-cover rounded-lg",
+										isLoading ? "grayscale" : "grayscale-0"
+									)}
+									onLoadingComplete={() => setLoading(false)}
+								/>
+							</div>
 						</div>
 
-						<p className="prose mt-6 text-zinc-600 dark:text-zinc-400 pb-2">
+						<p className="pb-2 font-mabry_pro_medium sm:text-xl text-lg">
 							I'm a System Administrator, Web Developer,
 							proficient in troubleshooting issues, operating
 							systems, databases, servers, and networks. Skilled
