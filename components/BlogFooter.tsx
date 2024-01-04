@@ -3,13 +3,13 @@ import { allBlogs } from "contentlayer/generated"
 
 const BlogFooter = () => {
 	return (
-		<div className="pb-12 px-5 max-w-2xl mx-auto">
-			<h1 className="font-thunder_hc text-4xl font-medium py-4">
-				Articles
-				<span className="text-primary"> .</span>
-			</h1>
+		<section className="sm:py-12 py-8 w-full relative">
+			<div className="px-5 sm:px-2 max-w-2xl mx-auto">
+				<h1 className="font-thunder_hc text-4xl font-medium pb-6">
+					Articles
+					<span className="text-primary"> .</span>
+				</h1>
 
-			<div className="w-full max-w-2xl">
 				<article className="flex flex-col gap-8">
 					{allBlogs
 						.sort((a, b) => {
@@ -58,7 +58,7 @@ const BlogFooter = () => {
 						))}
 				</article>
 			</div>
-		</div>
+		</section>
 	)
 }
 

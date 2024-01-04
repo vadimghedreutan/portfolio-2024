@@ -46,7 +46,7 @@ const variants = {
 const Hero = () => {
 	const [isLoading, setLoading] = useState(true)
 	return (
-		<div className="relative px-5 w-full max-w-2xl mx-auto">
+		<div className="relative px-5 sm:px-2 w-full max-w-2xl mx-auto">
 			<div className="mb-12">
 				<div className="w-full">
 					<div className="flex flex-col sm:space-y-12 space-y-8">
