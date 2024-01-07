@@ -5,7 +5,7 @@ publishedAt: "2024-01-07"
 category: "Docker"
 ---
 
-# How to clear Docker cache and free up space on your system
+## **How to clear Docker cache and free up space on your system**
 
 Docker persists build cache, containers, images, and volumes to disk. Over time, these things can take up a lot of space on your system, either locally or in CI. In this post, we'll look at the different Docker artifacts that can take up space on your system, how to clear them individually, and how to use `docker system prune` to clear Docker cache.
 
@@ -44,7 +44,7 @@ docker ps --filter status=exited --filter status=dead -q
 
 **Note:** If we want to know the size of the unused container, we can replace the `-q` flag with `-s` to get the size and other metadata about the container.
 
-### **Removing all containers**
+## **Removing all containers**
 
 If we want to remove all containers from the system, we can stop any running containers and then use the same prune command. Do this by feeding the output of `docker ps -q` into the `docker stop` or `docker kill` command if you want to kill the container forcibly.
 
