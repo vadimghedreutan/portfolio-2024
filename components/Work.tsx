@@ -67,7 +67,7 @@ const Work = ({ image, title, link, description, publishedAt }: Props) => {
 						{publishedAt}
 					</span>
 				</p>
-				<p className="text-zinc-500 text-sm truncate ...">
+				<p className="text-zinc-500 text-sm line-clamp-1">
 					{description}
 				</p>
 			</div>
