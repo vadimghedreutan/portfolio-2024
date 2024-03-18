@@ -126,4 +126,12 @@ export const items: Props[] = [
 		link: "https://collection-of-stunning-wallpapers.vercel.app",
 		publishedAt: "2023-04-15",
 	},
+	{
+		title: "File Keeper App",
+		image: "/projects/keepdata.webp",
+		description:
+			"NEXT.JS 14, React, Clerk, Shadcn, Firebase, Drag/Drop, CRUD, TS",
+		link: "https://file-keeper-app.vercel.app",
+		publishedAt: "2024-03-18",
+	},
 ]

@@ -142,11 +142,11 @@ const Hero = () => {
 						</div>
 
 						<p className="pb-2 font-mabry_pro_medium sm:text-xl text-lg">
-							I'm a System Administrator, Web Developer,
-							proficient in troubleshooting issues, operating
-							systems, databases, servers, and networks. Skilled
-							in designing visually appealing, user-friendly
-							websites using multiple languages and frameworks.
+							I'm a System Administrator proficient in
+							troubleshooting issues, operating systems,
+							databases, servers, and networks. Skilled in
+							designing visually appealing, user-friendly websites
+							using multiple languages and frameworks.
 						</p>
 
 						<div className="flex items-center space-x-4">
