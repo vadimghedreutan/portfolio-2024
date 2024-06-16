@@ -54,8 +54,8 @@ const Hero = () => {
 							hey, I'm vadim 👋
 						</h1>
 
-						<div className="columns-3 sm:gap-4 gap-2">
-							<div className="relative h-40 mb-4">
+						<div className="grid grid-cols-2 grid-rows-4 sm:grid-rows-3 sm:grid-cols-3 gap-4">
+							<div className="relative h-40">
 								<Image
 									src="/profile/img_0166.webp"
 									alt="Vadim Ghedreutan"
@@ -69,7 +69,7 @@ const Hero = () => {
 									onLoadingComplete={() => setLoading(false)}
 								/>
 							</div>
-							<div className="relative h-80 sm:mb-0 ">
+							<div className="relative sm:row-span-2 row-span-1 ">
 								<Image
 									src="/profile/img_0457.webp"
 									alt="Parque regional Montaña de Riaño"
@@ -83,7 +83,7 @@ const Hero = () => {
 									onLoadingComplete={() => setLoading(false)}
 								/>
 							</div>
-							<div className="relative h-80 mb-4 ">
+							<div className="relative">
 								<Image
 									src="/profile/img_0205.webp"
 									alt="Praia da Manta Rota Algarve"
@@ -97,7 +97,7 @@ const Hero = () => {
 									onLoadingComplete={() => setLoading(false)}
 								/>
 							</div>
-							<div className="relative h-40 sm:mb-0">
+							<div className="relative row-span-2">
 								<Image
 									src="/profile/img_0270.webp"
 									alt="Snowboard Freiburg"
@@ -111,7 +111,7 @@ const Hero = () => {
 									onLoadingComplete={() => setLoading(false)}
 								/>
 							</div>
-							<div className="relative h-40 mb-4">
+							<div className="relative row-span-2">
 								<Image
 									src="/profile/img_0215.webp"
 									alt="Cabanas de Tavira"
@@ -125,7 +125,7 @@ const Hero = () => {
 									onLoadingComplete={() => setLoading(false)}
 								/>
 							</div>
-							<div className="relative h-80 sm:mb-0 ">
+							<div className="relative h-40">
 								<Image
 									src="/profile/img_0213.webp"
 									alt="Cabanas de Tavira"
