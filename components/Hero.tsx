@@ -54,7 +54,7 @@ const Hero = () => {
 							hey, I'm vadim 👋
 						</h1>
 
-						<div className="grid grid-cols-2 grid-rows-4 sm:grid-rows-3 sm:grid-cols-3 gap-4">
+						<div className="grid grid-cols-2 grid-rows-4 sm:grid-rows-3 sm:grid-cols-3 gap-2 sm:gap-3">
 							<div className="relative h-40">
 								<Image
 									src="/profile/img_0166.webp"
