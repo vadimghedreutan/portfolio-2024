@@ -140,6 +140,33 @@ FROM salaries
 GROUP BY emp_no;
 ```
 
+****Understanding GROUP BY****
+
+The `GROUP BY` clause is used in conjunction with aggregate functions (such as `COUNT`, `MAX`, `MIN`, `AVG`, etc.) to group the result set by one or more columns. This allows you to perform aggregations on each group of data separately.
+
+For example, in the query:
+
+```sql
+SELECT
+  emp_no AS "Personalnummer",
+  count(*) AS "Gehälter",
+  max(salary) AS "Höchste_Gehalt",
+  min(salary) AS "Kleinste_Gehalt",
+  max(salary) - min(salary) AS "Gehaltsdifferenz",
+  avg(salary) AS "Durschnittsgehalt"
+FROM salaries
+GROUP BY emp_no;
+```
+
+This query groups the `salaries` table by the `emp_no` column. For each `emp_no`, it calculates:
+
+- The total number of salaries (`count(*) AS "Gehälter"`),
+- The highest salary (`max(salary) AS "Höchste_Gehalt"`),
+- The lowest salary (`min(salary) AS "Kleinste_Gehalt"`),
+- The difference between the highest and lowest salary (`max(salary) - min(salary) AS "Gehaltsdifferenz"`),
+- The average salary (`avg(salary) AS "Durschnittsgehalt"`).
+
+
 You can also filter aggregated results using the `HAVING` clause:
 
 ```sql
