@@ -1,0 +1,295 @@
+---
+title: "Mastering the Essentials of SQL"
+description: "This guide dives into essential SQL queries and techniques"
+publishedAt: "2024-06-16"
+category: "SQL"
+---
+
+## **This guide dives into essential SQL queries and techniques**
+
+SQL (Structured Query Language) is a powerful tool for managing and manipulating databases. Whether you're extracting data, updating records, or analyzing information, SQL provides a variety of commands to perform these tasks efficiently. In this blog post, we'll explore some fundamental SQL queries using an example database with tables like `employees`, `salaries`, and `titles`.
+
+****Basic SELECT Statements****
+
+To retrieve all records from a table, the `SELECT *` statement is used:
+
+```sql
+SELECT * FROM employees;
+SELECT * FROM salaries;
+```
+If you only need specific columns, you can specify them in the `SELECT` statement:
+
+```sql
+SELECT emp_no FROM employees;
+
+SELECT birth_date, first_name, emp_no
+FROM employees;
+```
+
+****Aliasing Columns****
+
+Sometimes, you may want to rename columns in your query results for better readability. This is done using the `AS` keyword:
+
+```sql
+SELECT emp_no AS "Personalnummer", title
+FROM titles;
+```
+
+***Removing Duplicates***
+
+The `DISTINCT` keyword ensures that only unique values are returned:
+
+```sql
+SELECT DISTINCT title
+FROM titles;
+
+SELECT DISTINCT first_name AS "Vorname"
+FROM employees;
+```
+
+****Filtering Data with WHERE Clause****
+
+The `WHERE` clause is used to filter records based on specific conditions:
+
+```sql
+SELECT first_name, birth_date
+FROM employees
+WHERE birth_date = '1960-04-15';
+
+SELECT *
+FROM employees
+WHERE last_name = 'Bale' AND gender = 'F';
+
+SELECT *
+FROM employees
+WHERE last_name = 'Bale' AND gender = 'F' AND first_name = 'Lena';
+```
+
+****Using IN for Multiple Values****
+
+The `IN` keyword provides a concise way to specify multiple values in a `WHERE` clause:
+
+```sql
+SELECT *
+FROM titles
+WHERE title IN ('Engineer', 'Senior Engineer', 'Assistant Engineer')
+  AND to_date = '9999-01-01';
+
+SELECT *
+FROM titles
+WHERE title IN ('Staff', 'Senior Staff')
+  AND from_date = '1995-12-03';
+```
+
+****Comparison Operators****
+
+SQL supports various comparison operators to refine your queries further:
+
+```sql
+SELECT *
+FROM titles
+WHERE title IN ('Staff', 'Senior Staff')
+  AND from_date < '1995-12-03'; // Can also use >, !=, >=, etc.
+
+SELECT *
+FROM titles
+WHERE title IN ('Staff', 'Senior Staff')
+  AND from_date BETWEEN '1995-12-03' AND '2002-12-31';
+
+SELECT *
+FROM titles
+WHERE title NOT IN ('Staff', 'Senior Staff')
+  AND from_date BETWEEN '1995-12-03' AND '2002-12-31';
+```
+
+****Pattern Matching with LIKE****
+
+The `LIKE` operator is used for pattern matching in SQL:
+
+```sql
+SELECT *
+FROM employees 
+WHERE first_name LIKE 'G%'; // Matches any first name starting with 'G'
+
+SELECT *
+FROM employees 
+WHERE hire_date LIKE '1995%'; // Matches any hire date in the year 1995
+
+SELECT *
+FROM employees 
+WHERE first_name NOT LIKE 'G%'; // Excludes any first name starting with 'G'
+```
+
+****Aggregating Data****
+
+SQL provides aggregation functions like `COUNT`, `MAX`, `MIN`, and `AVG` to perform calculations on your data:
+
+```sql
+SELECT count(*)
+FROM employees
+WHERE gender = 'F';
+
+SELECT
+  emp_no AS "Personalnummer",
+  count(*) AS "Gehälter",
+  max(salary) AS "Höchste_Gehalt",
+  min(salary) AS "Kleinste_Gehalt",
+  max(salary) - min(salary) AS "Gehaltsdifferenz",
+  avg(salary) AS "Durschnittsgehalt"
+FROM salaries
+GROUP BY emp_no;
+```
+
+You can also filter aggregated results using the `HAVING` clause:
+
+```sql
+SELECT
+  emp_no AS "Personalnummer",
+  count(*) AS "Gehälter",
+  max(salary) AS "Höchste_Gehalt"
+FROM salaries
+WHERE emp_no > 10300
+GROUP BY emp_no
+HAVING max(salary) > 100000;
+```
+
+****Joining Tables****
+
+SQL joins allow you to combine records from two or more tables based on related columns:
+
+```sql
+SELECT *
+FROM employees e
+INNER JOIN salaries s ON e.emp_no = s.emp_no;
+
+SELECT
+  first_name,
+  last_name,
+  salary
+FROM employees e
+INNER JOIN salaries s ON e.emp_no = s.emp_no
+WHERE salary > 100000 AND to_date = '9999-01-01';
+
+SELECT
+  first_name,
+  last_name,
+  salary,
+  title
+FROM employees e
+INNER JOIN salaries s ON e.emp_no = s.emp_no
+INNER JOIN titles t ON e.emp_no = t.emp_no
+WHERE salary > 100000 AND s.to_date = '9999-01-01'
+  AND t.to_date = '9999-01-01';
+
+SELECT
+  first_name,
+  last_name,
+  salary,
+  title
+FROM employees e
+INNER JOIN salaries s ON e.emp_no = s.emp_no
+INNER JOIN titles t ON e.emp_no = t.emp_no
+INNER JOIN dept_manager dm ON e.emp_no = dm.emp_no
+WHERE salary > 100000 AND s.to_date = '9999-01-01'
+  AND t.to_date = '9999-01-01'
+  AND dm.to_date = '9999-01-01';
+```
+
+****Working with Left and Right Joins****
+
+Left and right joins include all records from one table and the matched records from the other:
+
+```sql
+SELECT *
+FROM employees e
+LEFT JOIN salaries s ON e.emp_no = s.emp_no;
+
+SELECT *
+FROM employees e
+LEFT JOIN salaries s ON e.emp_no = s.emp_no
+WHERE s.emp_no IS NULL;
+
+SELECT *
+FROM employees e
+RIGHT JOIN salaries s ON e.emp_no = s.emp_no;
+```
+
+****Creating and Modifying Tables****
+
+Creating and modifying database structures is another crucial aspect of SQL:
+
+```sql
+-- Create the database
+CREATE DATABASE Cars;
+
+-- Use the newly created database
+USE Cars;
+
+-- Create the table with specified columns
+CREATE TABLE CarDetails (
+    CarID INT PRIMARY KEY AUTO_INCREMENT,
+    Make VARCHAR(50) NOT NULL,
+    Model VARCHAR(50) NOT NULL,
+    Year INT NOT NULL,
+    Price DECIMAL(10, 2) NOT NULL
+);
+
+-- Insert sample data into the table
+INSERT INTO CarDetails (Make, Model, Year, Price)
+VALUES
+    ('Toyota', 'Camry', 2020, 24000.00),
+    ('Honda', 'Civic', 2019, 22000.00),
+    ('Ford', 'Mustang', 2021, 26000.00),
+    ('Chevrolet', 'Malibu', 2018, 21000.00);
+```
+
+To add a new column and update existing rows with random colors:
+
+```sql
+-- Add a new column
+ALTER TABLE CarDetails
+ADD COLUMN Color VARCHAR(20);
+
+-- Temporarily disable safe update mode
+SET SQL_SAFE_UPDATES = 0;
+
+-- Updating rows with random colors
+SET @colors = 'Red,Blue,Green,Black,White,Silver,Gray';
+
+-- Split the colors into a temporary table
+CREATE TEMPORARY TABLE TempColors (Color VARCHAR(20));
+
+-- Insert colors into the temporary table
+INSERT INTO TempColors (Color)
+SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(@colors, ',', numbers.n), ',', -1) 
+FROM (
+    SELECT 1 n UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 
+    UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7
+) numbers;
+
+-- Update CarDetails with random colors
+UPDATE CarDetails 
+SET Color = (
+    SELECT Color 
+    FROM TempColors 
+    ORDER BY RAND() 
+    LIMIT 1
+);
+
+-- Drop the temporary table
+DROP TEMPORARY TABLE TempColors;
+
+-- Re-enable safe update mode
+SET SQL_SAFE_UPDATES = 1;
+```
+
+To update specific rows and delete records, you can use the `UPDATE` and `DELETE` statements:
+
+```sql
+UPDATE CarDetails
+SET Color = 'Silver'
+WHERE CarID = 1;
+
+DELETE FROM CarDetails
+WHERE CarID = 2;
+```
