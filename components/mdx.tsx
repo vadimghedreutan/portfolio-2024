@@ -1,7 +1,30 @@
-import * as React from "react"
+import React from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { useMDXComponent } from "next-contentlayer/hooks"
+import { MDXRemote } from "next-mdx-remote/rsc"
+import { highlight } from "sugar-high"
+
+function Table({ data }) {
+	let headers = data.headers.map((header, index) => (
+		<th key={index}>{header}</th>
+	))
+	let rows = data.rows.map((row, index) => (
+		<tr key={index}>
+			{row.map((cell, cellIndex) => (
+				<td key={cellIndex}>{cell}</td>
+			))}
+		</tr>
+	))
+
+	return (
+		<table>
+			<thead>
+				<tr>{headers}</tr>
+			</thead>
+			<tbody>{rows}</tbody>
+		</table>
+	)
+}
 
 const CustomLink = (props) => {
 	const href = props.href
@@ -25,21 +48,59 @@ function RoundedImage(props) {
 	return <Image alt={props.alt} className="rounded-lg" {...props} />
 }
 
-const components = {
+function Code({ children, ...props }) {
+	let codeHTML = highlight(children)
+	return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+}
+
+function slugify(str) {
+	return str
+		.toString()
+		.toLowerCase()
+		.trim() // Remove whitespace from both ends of a string
+		.replace(/\s+/g, "-") // Replace spaces with -
+		.replace(/&/g, "-and-") // Replace & with 'and'
+		.replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
+		.replace(/\-\-+/g, "-") // Replace multiple - with single -
+}
+
+function createHeading(level) {
+	return ({ children }) => {
+		let slug = slugify(children)
+		return React.createElement(
+			`h${level}`,
+			{ id: slug },
+			[
+				React.createElement("a", {
+					href: `#${slug}`,
+					key: `link-${slug}`,
+					className: "anchor",
+				}),
+			],
+			children
+		)
+	}
+}
+
+let components = {
+	h1: createHeading(1),
+	h2: createHeading(2),
+	h3: createHeading(3),
+	h4: createHeading(4),
+	h5: createHeading(5),
+	h6: createHeading(6),
 	Image: RoundedImage,
 	a: CustomLink,
+	code: Code,
+	Table,
 }
 
-interface MdxProps {
-	code: string
-}
-
-export function Mdx({ code }: MdxProps) {
-	const Component = useMDXComponent(code)
-
+export function CustomMDX(props) {
 	return (
-		<article className="prose prose-quoteless prose-neutral dark:prose-invert max-w-full big:max-w-screen-2xl mx-auto py-12">
-			<Component components={{ ...components }} />
-		</article>
+		// @ts-ignore
+		<MDXRemote
+			{...props}
+			components={{ ...components, ...(props.components || {}) }}
+		/>
 	)
 }

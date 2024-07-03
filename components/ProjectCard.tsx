@@ -47,7 +47,7 @@ const ProjectCard = ({
 			variants={variants}
 		>
 			<Link href={link} target="_blank" className="mx-auto flex flex-col">
-				<div className="relative aspect-[4/3] w-full overflow-hidden shadow-xl rounded-2xl">
+				<div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-900">
 					<Image
 						src={image}
 						alt={title}
@@ -55,10 +55,10 @@ const ProjectCard = ({
 						sizes="100vw"
 						priority
 						className={clsx(
-							"object-cover",
+							"object-cover p-2",
 							isLoading ? "grayscale" : "grayscale-0"
 						)}
-						onLoadingComplete={() => setLoading(false)}
+						onLoad={() => setLoading(false)}
 					/>
 				</div>
 			</Link>

@@ -1,9 +1,10 @@
-import { allBlogs } from 'contentlayer/generated';
+import { getBlogPosts } from 'db/blog';
 
 export default async function sitemap() {
-  const blogs = allBlogs.map((post) => ({
+  
+  const blogs = getBlogPosts().map((post) => ({
     url: `https://vadimghedreutan.io/blog/${post.slug}`,
-    lastModified: post.publishedAt,
+    lastModified: post.metadata.publishedAt,
   }));
 
   const routes = ['', '/projects', '/blog'].map(

@@ -73,7 +73,7 @@ export default function RootLayout({
 		<html
 			lang="en"
 			className={clsx(
-				"text-zinc-900 bg-white dark:text-white dark:bg-[#131B23]",
+				"text-zinc-900 bg-white dark:text-white dark:bg-[#000000]",
 				thunder_hc.variable,
 				mabry.variable
 			)}

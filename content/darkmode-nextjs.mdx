@@ -1,6 +1,6 @@
 ---
 title: "Dark Mode Tailwind and Next.js 13"
-description: "How to Create a Dark Mode using Tailwind and Next.js 13"
+summary: "How to Create a Dark Mode using Tailwind and Next.js 13"
 publishedAt: "2023-02-28"
 category: "Next.js"
 ---
@@ -35,7 +35,7 @@ This will create a tailwind.config.js file in your project root.
 
 In your postcss.config.js file, add the following configuration:
 
-```javascript
+```jsx
 module.exports = {
 	content: [
 		"./pages/**/*.{js,ts,jsx,tsx}",
@@ -52,7 +52,7 @@ module.exports = {
 
 In the `layout.tsx` file, wrap your component with the `Provider` from next-themes. Set the attribute prop to class to allow the library to apply the theme to the HTML element.
 
-```javascript
+```jsx
 <html>
 	<head />
 	<body>
@@ -65,7 +65,7 @@ In the `layout.tsx` file, wrap your component with the `Provider` from next-them
 
 ### Create a Providers Component
 
-```javascript
+```jsx
 "use client"
 import { ThemeProvider } from "next-themes"
 
@@ -86,7 +86,7 @@ Now let's create a component to toggle between light mode and dark mode.
 
 Create a new component called DarkModeToggle.tsx in the components directory. Here's an example:
 
-```javascript
+```jsx
 "use client"
 import { useState, useEffect } from "react"
 import { useTheme } from "next-themes"

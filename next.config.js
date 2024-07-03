@@ -1,14 +1,10 @@
 /** @type {import('next').NextConfig} */
 
-const { withContentlayer } = require("next-contentlayer")
-
 const nextConfig = {
 	images: {
 		formats: ["image/webp"],
 	},
-	experimental: {
-		appDir: true,
-	},
+	transpilePackages: ["next-mdx-remote"],
 	headers() {
 		return [
 			{
@@ -71,4 +67,4 @@ const securityHeaders = [
 	},
 ]
 
-module.exports = withContentlayer(nextConfig)
+module.exports = nextConfig

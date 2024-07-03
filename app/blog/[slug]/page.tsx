@@ -1,33 +1,29 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-
-import { allBlogs } from "contentlayer/generated"
+import { CustomMDX } from "components/mdx"
 import Balancer from "react-wrap-balancer"
-import { Mdx } from "components/mdx"
 import { BsArrowLeftShort } from "react-icons/bs"
 import Link from "next/link"
-
-export async function generateStaticParams() {
-	return allBlogs.map((post) => ({
-		slug: post.slug,
-	}))
-}
+import { getBlogPosts } from "db/blog"
+import { unstable_noStore as noStore } from "next/cache"
 
 export async function generateMetadata({
 	params,
 }): Promise<Metadata | undefined> {
-	const post = allBlogs.find((post) => post.slug === params.slug)
+	let post = getBlogPosts().find((post) => post.slug === params.slug)
 	if (!post) {
 		return
 	}
 
-	const {
+	let {
 		title,
 		publishedAt: publishedTime,
-		description: description,
-		slug,
-	} = post
-	const ogImage = `https://vadimghedreutan.io/og?title=${title}`
+		summary: description,
+		image,
+	} = post.metadata
+	let ogImage = image
+		? `https://vadimghedreutan.io/blog${image}`
+		: `https://vadimghedreutan.io/blog/og?title=${title}`
 
 	return {
 		title,
@@ -37,7 +33,7 @@ export async function generateMetadata({
 			description,
 			type: "article",
 			publishedTime,
-			url: `https://vadimghedreutan.io/blog/${slug}`,
+			url: `https://vadimghedreutan.io/blog/${post.slug}`,
 			images: [
 				{
 					url: ogImage,
@@ -54,36 +50,39 @@ export async function generateMetadata({
 }
 
 function formatDate(date: string) {
-	const currentDate = new Date()
-	const targetDate = new Date(date)
-
-	const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
-	const monthsAgo = currentDate.getMonth() - targetDate.getMonth()
-	const daysAgo = currentDate.getDate() - targetDate.getDate()
-
-	let formattedDate = ""
-
-	if (yearsAgo > 0) {
-		formattedDate = `${yearsAgo}y ago`
-	} else if (monthsAgo > 0) {
-		formattedDate = `${monthsAgo}mo ago`
-	} else if (daysAgo > 0) {
-		formattedDate = `${daysAgo}d ago`
-	} else {
-		formattedDate = "Today"
+	noStore()
+	let currentDate = new Date().getTime()
+	if (!date.includes("T")) {
+		date = `${date}T00:00:00`
 	}
+	let targetDate = new Date(date).getTime()
+	let timeDifference = Math.abs(currentDate - targetDate)
+	let daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
 
-	const fullDate = targetDate.toLocaleString("en-us", {
+	let fullDate = new Date(date).toLocaleString("en-us", {
 		month: "long",
 		day: "numeric",
 		year: "numeric",
 	})
 
-	return `${fullDate} (${formattedDate})`
+	if (daysAgo < 1) {
+		return "Today"
+	} else if (daysAgo < 7) {
+		return `${fullDate} (${daysAgo}d ago)`
+	} else if (daysAgo < 30) {
+		const weeksAgo = Math.floor(daysAgo / 7)
+		return `${fullDate} (${weeksAgo}w ago)`
+	} else if (daysAgo < 365) {
+		const monthsAgo = Math.floor(daysAgo / 30)
+		return `${fullDate} (${monthsAgo}mo ago)`
+	} else {
+		const yearsAgo = Math.floor(daysAgo / 365)
+		return `${fullDate} (${yearsAgo}y ago)`
+	}
 }
 
-export default async function Blog({ params }) {
-	const post = allBlogs.find((post) => post.slug === params.slug)
+export default function Blog({ params }) {
+	let post = getBlogPosts().find((post) => post.slug === params.slug)
 
 	if (!post) {
 		notFound()
@@ -91,12 +90,34 @@ export default async function Blog({ params }) {
 
 	return (
 		<section className="big:max-w-screen-2xl mx-auto px-5 sm:px-10">
+			<script
+				type="application/ld+json"
+				suppressHydrationWarning
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "BlogPosting",
+						headline: post.metadata.title,
+						datePublished: post.metadata.publishedAt,
+						dateModified: post.metadata.publishedAt,
+						description: post.metadata.summary,
+						image: post.metadata.image
+							? `https://vadimghedreutan.io${post.metadata.image}`
+							: `https://vadimghedreutan.io/og?title=${post.metadata.title}`,
+						url: `https://vadimghedreutan.io/blog/${post.slug}`,
+						author: {
+							"@type": "Person",
+							name: "Vadim Ghedreutan",
+						},
+					}),
+				}}
+			/>
 			<div className="flex flex-col space-y-4">
 				<h1 className="text-xl sm:text-3xl font-bold pb-1">
-					<Balancer>{post.title}</Balancer>
+					<Balancer>{post.metadata.title}</Balancer>
 				</h1>
 				<div className="bg-zinc-100 text-zinc-900 dark:bg-zinc-800/50 dark:text-white text-sm rounded-lg px-2 py-1 tracking-tighter w-fit">
-					{formatDate(post.publishedAt)}
+					{formatDate(post.metadata.publishedAt)}
 				</div>
 				<Link
 					href="/blog"
@@ -107,7 +128,9 @@ export default async function Blog({ params }) {
 					<BsArrowLeftShort className="h-6 w-6 text-zinc-800 dark:text-zinc-100 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
 				</Link>
 			</div>
-			<Mdx code={post.body.code} />
+			<article className="prose prose-quoteless prose-neutral dark:prose-invert max-w-full big:max-w-screen-2xl mx-auto py-12">
+				<CustomMDX source={post.content} />
+			</article>
 		</section>
 	)
 }

@@ -1,56 +1,18 @@
 "use client"
 import { useState } from "react"
-import clsx from "clsx"
-import { motion } from "framer-motion"
 import Image from "next/image"
-import { FaGithub, FaTwitter } from "react-icons/fa"
-import { MdEmail } from "react-icons/md"
-
-const socials = [
-	{
-		name: "Github",
-		link: "https://github.com/vadimghedreutan",
-		icon: (
-			<FaGithub className="h-6 w-6 sm:h-7 sm:w-7 transition-all duration-300 ease-out hover:scale-125" />
-		),
-	},
-	{
-		name: "Twitter",
-		link: "https://twitter.com/GhedreutanVadim",
-		icon: (
-			<FaTwitter className="h-6 w-6 sm:h-7 sm:w-7 transition-all duration-300 ease-out hover:scale-125" />
-		),
-	},
-	{
-		name: "Email",
-		link: "mailto:dev.vadimghedreutan@gmail.com",
-		icon: (
-			<MdEmail className="h-6 w-6 sm:h-7 sm:w-7 transition-all duration-300 ease-out hover:scale-125" />
-		),
-	},
-]
-
-const variants = {
-	visible: (index: number): any => ({
-		opacity: 1,
-		transition: {
-			type: "spring",
-			duration: 1,
-			stiffness: 50,
-			delay: index * 0.1,
-		},
-	}),
-	hidden: { opacity: 0 },
-}
+import { FlipWords } from "../components/ui/flip-words"
+import clsx from "clsx"
 
 const Hero = () => {
-	const [isLoading, setLoading] = useState(true)
+	const [isLoading, setIsLoading] = useState(true)
+	const words = ["Windows", "Linux", "Mac", "Network"]
 	return (
 		<div className="relative px-5 sm:px-2 w-full max-w-2xl mx-auto">
 			<div className="mb-12">
 				<div className="w-full">
 					<div className="flex flex-col sm:space-y-12 space-y-8">
-						<h1 className="text-3xl font-bold tracking-tighter sm:text-4xl font-mabry_pro_medium">
+						<h1 className="text-4xl sm:text-4xl font-thunder_hc">
 							hey, I'm vadim 👋
 						</h1>
 
@@ -66,7 +28,7 @@ const Hero = () => {
 										"object-cover rounded-lg",
 										isLoading ? "grayscale" : "grayscale-0"
 									)}
-									onLoadingComplete={() => setLoading(false)}
+									onLoad={() => setIsLoading(false)}
 								/>
 							</div>
 							<div className="relative sm:row-span-2 row-span-1 ">
@@ -80,7 +42,7 @@ const Hero = () => {
 										"object-cover rounded-lg",
 										isLoading ? "grayscale" : "grayscale-0"
 									)}
-									onLoadingComplete={() => setLoading(false)}
+									onLoad={() => setIsLoading(false)}
 								/>
 							</div>
 							<div className="relative">
@@ -94,7 +56,7 @@ const Hero = () => {
 										"object-cover rounded-lg",
 										isLoading ? "grayscale" : "grayscale-0"
 									)}
-									onLoadingComplete={() => setLoading(false)}
+									onLoad={() => setIsLoading(false)}
 								/>
 							</div>
 							<div className="relative row-span-2">
@@ -108,7 +70,7 @@ const Hero = () => {
 										"object-cover rounded-lg",
 										isLoading ? "grayscale" : "grayscale-0"
 									)}
-									onLoadingComplete={() => setLoading(false)}
+									onLoad={() => setIsLoading(false)}
 								/>
 							</div>
 							<div className="relative row-span-2">
@@ -122,7 +84,7 @@ const Hero = () => {
 										"object-cover rounded-lg",
 										isLoading ? "grayscale" : "grayscale-0"
 									)}
-									onLoadingComplete={() => setLoading(false)}
+									onLoad={() => setIsLoading(false)}
 								/>
 							</div>
 							<div className="relative h-40">
@@ -136,35 +98,18 @@ const Hero = () => {
 										"object-cover rounded-lg",
 										isLoading ? "grayscale" : "grayscale-0"
 									)}
-									onLoadingComplete={() => setLoading(false)}
+									onLoad={() => setIsLoading(false)}
 								/>
 							</div>
 						</div>
 
-						<p className="pb-2 font-mabry_pro_medium sm:text-xl text-lg">
-							I'm a System Administrator proficient in
-							troubleshooting issues, operating systems,
-							databases, servers, and networks. Skilled in
-							designing visually appealing, user-friendly websites
-							using multiple languages and frameworks.
-						</p>
-
-						<div className="flex items-center space-x-4">
-							{socials.map(({ name, link, icon }, index) => (
-								<motion.a
-									key={index}
-									href={link}
-									target="_blank"
-									aria-label={name}
-									className="cursor-pointer"
-									custom={index}
-									animate="visible"
-									initial="hidden"
-									variants={variants}
-								>
-									{icon}
-								</motion.a>
-							))}
+						<div className="flex justify-center items-center">
+							<div className="text-2xl sm:text-3xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
+								IT Support:
+								<FlipWords words={words} /> <br />
+								Web design in multiple languages. Upgrade,
+								troubleshoot, support.
+							</div>
 						</div>
 					</div>
 				</div>

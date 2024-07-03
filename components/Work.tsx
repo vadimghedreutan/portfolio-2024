@@ -4,7 +4,6 @@ import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import Link from "next/link"
 import Image from "next/image"
-import clsx from "clsx"
 
 interface Props {
 	title: string
@@ -45,28 +44,19 @@ const Work = ({ image, title, link, description, publishedAt }: Props) => {
 			variants={variants}
 		>
 			<Link href={link} target="_blank" className="mx-auto flex flex-col">
-				<div className="relative aspect-[4/3] w-full overflow-hidden shadow-md rounded-2xl">
+				<div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900 rounded-lg border border-neutral-200 dark:border-neutral-900">
 					<Image
 						src={image}
 						alt={title}
 						fill
 						sizes="100vw"
 						priority
-						className={clsx(
-							"object-cover",
-							isLoading ? "grayscale" : "grayscale-0"
-						)}
-						onLoadingComplete={() => setLoading(false)}
+						className="object-cover p-2"
 					/>
 				</div>
 			</Link>
 			<div className="p-3">
-				<p className="text-lg sm:font-medium">
-					{title} -{" "}
-					<span className="text-sm text-zinc-500 dark:text-zinc-600">
-						{publishedAt}
-					</span>
-				</p>
+				<p className="text-lg sm:font-medium">{title}</p>
 				<p className="text-zinc-500 text-sm line-clamp-1">
 					{description}
 				</p>
