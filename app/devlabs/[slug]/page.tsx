@@ -22,8 +22,8 @@ export async function generateMetadata({
 		image,
 	} = post.metadata
 	let ogImage = image
-		? `https://vadimghedreutan.io/blog${image}`
-		: `https://vadimghedreutan.io/blog/og?title=${title}`
+		? `https://vadimghedreutan.io/devlabs${image}`
+		: `https://vadimghedreutan.io/devlabs/og?title=${title}`
 
 	return {
 		title,
@@ -33,7 +33,7 @@ export async function generateMetadata({
 			description,
 			type: "article",
 			publishedTime,
-			url: `https://vadimghedreutan.io/blog/${post.slug}`,
+			url: `https://vadimghedreutan.io/devlabs/${post.slug}`,
 			images: [
 				{
 					url: ogImage,
@@ -81,7 +81,7 @@ function formatDate(date: string) {
 	}
 }
 
-export default function Blog({ params }) {
+export default function DevLabs({ params }) {
 	let post = getBlogPosts().find((post) => post.slug === params.slug)
 
 	if (!post) {
@@ -96,7 +96,7 @@ export default function Blog({ params }) {
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
 						"@context": "https://schema.org",
-						"@type": "BlogPosting",
+						"@type": "LabsPosting",
 						headline: post.metadata.title,
 						datePublished: post.metadata.publishedAt,
 						dateModified: post.metadata.publishedAt,
@@ -104,7 +104,7 @@ export default function Blog({ params }) {
 						image: post.metadata.image
 							? `https://vadimghedreutan.io${post.metadata.image}`
 							: `https://vadimghedreutan.io/og?title=${post.metadata.title}`,
-						url: `https://vadimghedreutan.io/blog/${post.slug}`,
+						url: `https://vadimghedreutan.io/devlabs/${post.slug}`,
 						author: {
 							"@type": "Person",
 							name: "Vadim Ghedreutan",
