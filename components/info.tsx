@@ -18,7 +18,7 @@ export const items: Props[] = [
 		title: "RandomChat",
 		image: "/projects/whats_re.webp",
 		description: "React, Firebase v9 Tailwind CSS",
-		link: "https://random-chat-bice.vercel.app",
+		link: "https://github.com/vadimghedreutan/RandomChat",
 		publishedAt: "2022-02-02",
 	},
 	{
@@ -131,7 +131,7 @@ export const items: Props[] = [
 		image: "/projects/keepdata.webp",
 		description:
 			"NEXT.JS 14, React, Clerk, Shadcn, Firebase, Drag/Drop, CRUD, TS",
-		link: "https://file-keeper-app.vercel.app",
+		link: "https://github.com/vadimghedreutan/FileKeeper-app",
 		publishedAt: "2024-03-18",
 	},
 ]
