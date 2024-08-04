@@ -120,7 +120,7 @@ export default function DevLabs({ params }) {
 					{formatDate(post.metadata.publishedAt)}
 				</div>
 				<Link
-					href="/blog"
+					href="/devlabs"
 					aria-label="Go back to articles"
 					className="group flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 
 				transition dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20"
