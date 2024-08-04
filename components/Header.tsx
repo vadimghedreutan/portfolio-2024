@@ -11,15 +11,15 @@ const navItems = {
 	"/projects": {
 		name: "projects",
 	},
-	"/blog": {
-		name: "blog",
+	"/devlabs": {
+		name: "devlabs",
 	},
 }
 
 const Header = () => {
 	let pathname = usePathname() || "/"
-	if (pathname.includes("/blog/")) {
-		pathname = "/blog"
+	if (pathname.includes("/devlabs/")) {
+		pathname = "/devlabs"
 	}
 	return (
 		<header className="px-5 sm:px-10 pt-14 mb-16 tracking-tight">
