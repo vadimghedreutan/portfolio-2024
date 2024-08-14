@@ -104,11 +104,18 @@ const Hero = () => {
 						</div>
 
 						<div className="flex justify-center items-center">
-							<div className="text-2xl sm:text-3xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
-								IT Support:
-								<FlipWords words={words} /> <br />
-								Web design in multiple languages. Upgrade,
-								troubleshoot, support.
+							<div className="text-lg sm:text-xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
+								<h2>
+									<span className="font-bold text-zinc-900 dark:text-white">
+										IT Support Specialist:
+									</span>{" "}
+									Expertise in Mac, Linux, and Windows
+									environments. Proficient in web design
+									across multiple programming languages.
+									Skilled in system upgrades, troubleshooting,
+									and providing comprehensive technical
+									support.
+								</h2>
 							</div>
 						</div>
 					</div>
